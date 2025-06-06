@@ -44,10 +44,10 @@
             this.ColumnJumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupAction = new System.Windows.Forms.GroupBox();
-            this.buttonSimpan = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonHapus = new System.Windows.Forms.Button();
             this.buttonReload = new System.Windows.Forms.Button();
+            this.buttonHapus = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonSimpan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).BeginInit();
             this.groupAction.SuspendLayout();
             this.SuspendLayout();
@@ -97,10 +97,10 @@
             this.radioStandart.AutoSize = true;
             this.radioStandart.Location = new System.Drawing.Point(183, 191);
             this.radioStandart.Name = "radioStandart";
-            this.radioStandart.Size = new System.Drawing.Size(143, 24);
+            this.radioStandart.Size = new System.Drawing.Size(199, 24);
             this.radioStandart.TabIndex = 7;
             this.radioStandart.TabStop = true;
-            this.radioStandart.Text = "Standart Room";
+            this.radioStandart.Text = "Standart Room (Max 3)";
             this.radioStandart.UseVisualStyleBackColor = true;
             // 
             // labelJumlah
@@ -127,10 +127,10 @@
             this.radioSuperior.AutoSize = true;
             this.radioSuperior.Location = new System.Drawing.Point(183, 233);
             this.radioSuperior.Name = "radioSuperior";
-            this.radioSuperior.Size = new System.Drawing.Size(141, 24);
+            this.radioSuperior.Size = new System.Drawing.Size(197, 24);
             this.radioSuperior.TabIndex = 9;
             this.radioSuperior.TabStop = true;
-            this.radioSuperior.Text = "Superior Room";
+            this.radioSuperior.Text = "Superior Room (Max 5)";
             this.radioSuperior.UseVisualStyleBackColor = true;
             // 
             // radioSuite
@@ -138,10 +138,10 @@
             this.radioSuite.AutoSize = true;
             this.radioSuite.Location = new System.Drawing.Point(183, 276);
             this.radioSuite.Name = "radioSuite";
-            this.radioSuite.Size = new System.Drawing.Size(118, 24);
+            this.radioSuite.Size = new System.Drawing.Size(174, 24);
             this.radioSuite.TabIndex = 10;
             this.radioSuite.TabStop = true;
-            this.radioSuite.Text = "Suite Room";
+            this.radioSuite.Text = "Suite Room (Max 7)";
             this.radioSuite.UseVisualStyleBackColor = true;
             // 
             // dataGridReservasi
@@ -200,14 +200,23 @@
             this.groupAction.TabStop = false;
             this.groupAction.Text = "Action";
             // 
-            // buttonSimpan
+            // buttonReload
             // 
-            this.buttonSimpan.Location = new System.Drawing.Point(80, 100);
-            this.buttonSimpan.Name = "buttonSimpan";
-            this.buttonSimpan.Size = new System.Drawing.Size(273, 35);
-            this.buttonSimpan.TabIndex = 13;
-            this.buttonSimpan.Text = "Simpan";
-            this.buttonSimpan.UseVisualStyleBackColor = true;
+            this.buttonReload.Location = new System.Drawing.Point(321, 40);
+            this.buttonReload.Name = "buttonReload";
+            this.buttonReload.Size = new System.Drawing.Size(96, 35);
+            this.buttonReload.TabIndex = 16;
+            this.buttonReload.Text = "Reload";
+            this.buttonReload.UseVisualStyleBackColor = true;
+            // 
+            // buttonHapus
+            // 
+            this.buttonHapus.Location = new System.Drawing.Point(171, 40);
+            this.buttonHapus.Name = "buttonHapus";
+            this.buttonHapus.Size = new System.Drawing.Size(96, 35);
+            this.buttonHapus.TabIndex = 15;
+            this.buttonHapus.Text = "Hapus";
+            this.buttonHapus.UseVisualStyleBackColor = true;
             // 
             // buttonEdit
             // 
@@ -219,23 +228,14 @@
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // buttonHapus
+            // buttonSimpan
             // 
-            this.buttonHapus.Location = new System.Drawing.Point(171, 40);
-            this.buttonHapus.Name = "buttonHapus";
-            this.buttonHapus.Size = new System.Drawing.Size(96, 35);
-            this.buttonHapus.TabIndex = 15;
-            this.buttonHapus.Text = "Hapus";
-            this.buttonHapus.UseVisualStyleBackColor = true;
-            // 
-            // buttonReload
-            // 
-            this.buttonReload.Location = new System.Drawing.Point(321, 40);
-            this.buttonReload.Name = "buttonReload";
-            this.buttonReload.Size = new System.Drawing.Size(96, 35);
-            this.buttonReload.TabIndex = 16;
-            this.buttonReload.Text = "Reload";
-            this.buttonReload.UseVisualStyleBackColor = true;
+            this.buttonSimpan.Location = new System.Drawing.Point(80, 100);
+            this.buttonSimpan.Name = "buttonSimpan";
+            this.buttonSimpan.Size = new System.Drawing.Size(273, 35);
+            this.buttonSimpan.TabIndex = 13;
+            this.buttonSimpan.Text = "Simpan";
+            this.buttonSimpan.UseVisualStyleBackColor = true;
             // 
             // FormReservasi
             // 
