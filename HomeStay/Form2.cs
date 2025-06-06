@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace HomeStay
 {
-    public partial class Form2: Form
+    public partial class FormReservasi: Form
     {
-        public Form2()
+        public FormReservasi()
         {
             InitializeComponent();
+        }
+
+        private void txtJumlahTamu_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelJumlah_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
