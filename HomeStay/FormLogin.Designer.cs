@@ -29,60 +29,60 @@
         private void InitializeComponent()
         {
             this.labelLogin = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelLogin
             // 
             this.labelLogin.AutoSize = true;
-            this.labelLogin.Location = new System.Drawing.Point(179, 89);
+            this.labelLogin.Location = new System.Drawing.Point(166, 88);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(173, 20);
+            this.labelLogin.Size = new System.Drawing.Size(140, 16);
             this.labelLogin.TabIndex = 0;
             this.labelLogin.Text = "LOGIN RESEPSIONIS";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtPassword.Location = new System.Drawing.Point(160, 198);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(218, 26);
-            this.txtPassword.TabIndex = 1;
-            this.txtPassword.Text = "Masukkan Password";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtUsername.Location = new System.Drawing.Point(160, 151);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(218, 26);
-            this.txtUsername.TabIndex = 2;
-            this.txtUsername.Text = "Masukkan Username";
+            this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
             // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLogin.Location = new System.Drawing.Point(210, 274);
+            this.btnLogin.Location = new System.Drawing.Point(187, 219);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(105, 32);
+            this.btnLogin.Size = new System.Drawing.Size(93, 26);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             // 
+            // textBoxUsername
+            // 
+            this.textBoxUsername.Location = new System.Drawing.Point(142, 130);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(194, 22);
+            this.textBoxUsername.TabIndex = 4;
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Location = new System.Drawing.Point(142, 168);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(194, 22);
+            this.textBoxPassword.TabIndex = 5;
+            // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 450);
+            this.ClientSize = new System.Drawing.Size(506, 360);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.labelLogin);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,9 +91,9 @@
         #endregion
 
         private System.Windows.Forms.Label labelLogin;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxPassword;
     }
 }
 

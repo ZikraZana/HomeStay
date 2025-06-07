@@ -16,5 +16,18 @@ namespace HomeStay
         {
             InitializeComponent();
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }
