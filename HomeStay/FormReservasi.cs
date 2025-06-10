@@ -140,5 +140,15 @@ namespace HomeStay
                 buttonSimpan.Enabled = false;
             }
         }
+
+        private void txtNamaTamu_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonHapus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -55,18 +55,20 @@
             // labelNama
             // 
             this.labelNama.AutoSize = true;
+            this.labelNama.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNama.Location = new System.Drawing.Point(36, 46);
             this.labelNama.Name = "labelNama";
-            this.labelNama.Size = new System.Drawing.Size(51, 20);
+            this.labelNama.Size = new System.Drawing.Size(52, 18);
             this.labelNama.TabIndex = 0;
             this.labelNama.Text = "Nama";
             // 
             // labelTanggal
             // 
             this.labelTanggal.AutoSize = true;
+            this.labelTanggal.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTanggal.Location = new System.Drawing.Point(36, 92);
             this.labelTanggal.Name = "labelTanggal";
-            this.labelTanggal.Size = new System.Drawing.Size(134, 20);
+            this.labelTanggal.Size = new System.Drawing.Size(140, 18);
             this.labelTanggal.TabIndex = 1;
             this.labelTanggal.Text = "Tanggal Check-In";
             // 
@@ -77,9 +79,11 @@
             this.txtNamaTamu.Name = "txtNamaTamu";
             this.txtNamaTamu.Size = new System.Drawing.Size(237, 26);
             this.txtNamaTamu.TabIndex = 3;
+            this.txtNamaTamu.TextChanged += new System.EventHandler(this.txtNamaTamu_TextChanged);
             // 
             // dateCheckIn
             // 
+            this.dateCheckIn.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateCheckIn.Location = new System.Drawing.Point(183, 92);
             this.dateCheckIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateCheckIn.Name = "dateCheckIn";
@@ -98,10 +102,11 @@
             // radioStandart
             // 
             this.radioStandart.AutoSize = true;
+            this.radioStandart.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioStandart.Location = new System.Drawing.Point(183, 191);
             this.radioStandart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioStandart.Name = "radioStandart";
-            this.radioStandart.Size = new System.Drawing.Size(199, 24);
+            this.radioStandart.Size = new System.Drawing.Size(205, 22);
             this.radioStandart.TabIndex = 7;
             this.radioStandart.TabStop = true;
             this.radioStandart.Text = "Standart Room (Max 3)";
@@ -110,9 +115,10 @@
             // labelJumlah
             // 
             this.labelJumlah.AutoSize = true;
+            this.labelJumlah.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelJumlah.Location = new System.Drawing.Point(36, 132);
             this.labelJumlah.Name = "labelJumlah";
-            this.labelJumlah.Size = new System.Drawing.Size(108, 20);
+            this.labelJumlah.Size = new System.Drawing.Size(108, 18);
             this.labelJumlah.TabIndex = 2;
             this.labelJumlah.Text = "Jumlah Orang";
             this.labelJumlah.Click += new System.EventHandler(this.labelJumlah_Click);
@@ -120,19 +126,21 @@
             // labelTipe
             // 
             this.labelTipe.AutoSize = true;
+            this.labelTipe.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTipe.Location = new System.Drawing.Point(36, 191);
             this.labelTipe.Name = "labelTipe";
-            this.labelTipe.Size = new System.Drawing.Size(89, 20);
+            this.labelTipe.Size = new System.Drawing.Size(93, 18);
             this.labelTipe.TabIndex = 8;
             this.labelTipe.Text = "Tipe Kamar";
             // 
             // radioSuperior
             // 
             this.radioSuperior.AutoSize = true;
+            this.radioSuperior.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioSuperior.Location = new System.Drawing.Point(183, 232);
             this.radioSuperior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioSuperior.Name = "radioSuperior";
-            this.radioSuperior.Size = new System.Drawing.Size(197, 24);
+            this.radioSuperior.Size = new System.Drawing.Size(205, 22);
             this.radioSuperior.TabIndex = 9;
             this.radioSuperior.TabStop = true;
             this.radioSuperior.Text = "Superior Room (Max 5)";
@@ -141,10 +149,11 @@
             // radioSuite
             // 
             this.radioSuite.AutoSize = true;
+            this.radioSuite.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioSuite.Location = new System.Drawing.Point(183, 276);
             this.radioSuite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioSuite.Name = "radioSuite";
-            this.radioSuite.Size = new System.Drawing.Size(174, 24);
+            this.radioSuite.Size = new System.Drawing.Size(180, 22);
             this.radioSuite.TabIndex = 10;
             this.radioSuite.TabStop = true;
             this.radioSuite.Text = "Suite Room (Max 7)";
@@ -212,6 +221,7 @@
             // 
             // buttonReload
             // 
+            this.buttonReload.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReload.Location = new System.Drawing.Point(321, 40);
             this.buttonReload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonReload.Name = "buttonReload";
@@ -222,6 +232,7 @@
             // 
             // buttonHapus
             // 
+            this.buttonHapus.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHapus.Location = new System.Drawing.Point(171, 40);
             this.buttonHapus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonHapus.Name = "buttonHapus";
@@ -229,10 +240,12 @@
             this.buttonHapus.TabIndex = 15;
             this.buttonHapus.Text = "Hapus";
             this.buttonHapus.UseVisualStyleBackColor = true;
+            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(28, 40);
+            this.buttonEdit.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEdit.Location = new System.Drawing.Point(21, 40);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(96, 35);
@@ -243,6 +256,7 @@
             // 
             // buttonSimpan
             // 
+            this.buttonSimpan.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSimpan.Location = new System.Drawing.Point(80, 100);
             this.buttonSimpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSimpan.Name = "buttonSimpan";
