@@ -29,8 +29,8 @@ namespace HomeStay
                     adapter.Fill(dt);
                     dataGridReservasi.DataSource = dt;
 
-                    dataGridReservasi.Columns["id"].HeaderText = "ID";
-                    dataGridReservasi.Columns["id"].Visible = false;
+                    dataGridReservasi.Columns["id_pemesanan"].HeaderText = "id_pemesanan";
+                    dataGridReservasi.Columns["id_pemesanan"].Visible = false;
 
                     dataGridReservasi.Columns["nama_tamu"].HeaderText = "Nama";
                     dataGridReservasi.Columns["tanggal_pemesanan"].HeaderText = "Tanggal Check-In";
@@ -150,5 +150,7 @@ namespace HomeStay
         {
 
         }
+
+        
     }
 }
