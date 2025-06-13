@@ -355,10 +355,24 @@ namespace HomeStay
 
                 int offset = (currentPage - 1) * pageSize;
 
-                string query = $"SELECT * FROM pemesanan ORDER BY id_pemesanan DESC LIMIT @limit OFFSET @offset";
+                string query = @"
+                        SELECT 
+                            p.id_pemesanan,
+                            p.nama_tamu,
+                            p.tanggal_pemesanan,
+                            p.tanggal_check_in,
+                            p.jumlah_tamu,
+                            k.tipe_kamar,
+                            p.no_pemesanan,
+                            p.id_resepsionis
+                        FROM pemesanan p
+                        JOIN kamar k ON p.id_kamar = k.id_kamar
+                        ORDER BY p.id_pemesanan DESC
+                        LIMIT @limit OFFSET @offset";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@limit", pageSize);
                 cmd.Parameters.AddWithValue("@offset", offset);
+
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
