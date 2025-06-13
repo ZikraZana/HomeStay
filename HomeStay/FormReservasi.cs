@@ -32,10 +32,12 @@ namespace HomeStay
                     dataGridReservasi.Columns["id_pemesanan"].HeaderText = "id_pemesanan";
                     dataGridReservasi.Columns["id_pemesanan"].Visible = false;
 
-                    dataGridReservasi.Columns["nama_tamu"].HeaderText = "Nama";
+                    dataGridReservasi.Columns["nama_tamu"].HeaderText = "Nama Tamu";
                     dataGridReservasi.Columns["tanggal_pemesanan"].HeaderText = "Tanggal Check-In";
                     dataGridReservasi.Columns["jumlah_tamu"].HeaderText = "Jumlah Orang";
-                    dataGridReservasi.Columns["id_kamar"].HeaderText = "Tipe Kamar";
+                    dataGridReservasi.Columns["id_kamar"].HeaderText = "Tipe Kamar (ID)";
+                    dataGridReservasi.Columns["no_pemesanan"].HeaderText = "No. Pemesanan";
+                    dataGridReservasi.Columns["id_resepsionis"].Visible=false;
                 }
                 catch (Exception ex)
                 {
@@ -75,7 +77,11 @@ namespace HomeStay
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if (selectedId == -1) return;
+            if (selectedId == -1)
+            {
+                MessageBox.Show("Pilih data yang ingin diedit terlebih dahulu.");
+                return;
+            }
 
             using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
             {
@@ -102,6 +108,7 @@ namespace HomeStay
                     }
                     cmd.Parameters.AddWithValue("@id_kamar", idKamar);
                     cmd.Parameters.AddWithValue("@id_resepsionis", 1);
+                    cmd.Parameters.AddWithValue("@id_pemesanan", selectedId);
                     cmd.ExecuteNonQuery();
                     LoadData();
                     ClearForm();
@@ -157,7 +164,7 @@ namespace HomeStay
         {
             if (e.RowIndex == 0)
             { 
-                object valueSelectedId = dataGridReservasi.Rows[e.RowIndex].Cells["id"].Value;
+                object valueSelectedId = dataGridReservasi.Rows[e.RowIndex].Cells["id_pemesanan"].Value;
                 selectedId = (valueSelectedId != null && valueSelectedId != DBNull.Value)
                     ? Convert.ToInt32(valueSelectedId) 
                     : -1;
@@ -172,7 +179,19 @@ namespace HomeStay
                     dateCheckIn.Value = DateTime.Now;
                 }
                 txtJumlahTamu.Text = dataGridReservasi.Rows[e.RowIndex].Cells["jumlah_tamu"].Value?.ToString() ?? "";
-                txtNamaTamu.Text = dataGridReservasi.Rows[e.RowIndex].Cells["nama_tamu"].Value?.ToString() ?? "";
+                if (dataGridReservasi.Rows[e.RowIndex].Cells["id_kamar"].Value != DBNull.Value)
+                {
+                    string idKamarFromGrid = dataGridReservasi.Rows[e.RowIndex].Cells["id_kamar"].Value.ToString();
+                    radioStandart.Checked = (idKamarFromGrid == "1");
+                    radioSuperior.Checked = (idKamarFromGrid == "2");
+                    radioSuite.Checked = (idKamarFromGrid == "3");
+                }
+                else
+                {
+                    radioStandart.Checked = false;
+                    radioSuperior.Checked = false;
+                    radioSuite.Checked = false;
+                }
                 buttonSimpan.Enabled = false;
             }
         }
@@ -184,19 +203,26 @@ namespace HomeStay
 
         private void buttonHapus_Click(object sender, EventArgs e)
         {
-            if (selectedId == -1) return;
+            if (selectedId == -1)
+            {
+                MessageBox.Show("Pilih data yang ingin dihapus terlebih dahulu.");
+                return;
+            }
 
             DialogResult result = MessageBox.Show("Yakin ingin menghapus data pemesanan ini?", "Konfirmasi", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) return;
+            if (result == DialogResult.No)
+            {
+                return;
+            }
 
             using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
             {
                 try
                 {
                     conn.Open();
-                    string query = "DELETE FROM pemesanan WHERE id=@id";
+                    string query = "DELETE FROM pemesanan WHERE id_pemesanan=@id_pemesanan";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@id", selectedId);
+                    cmd.Parameters.AddWithValue("@id_pemesanan", selectedId);
                     cmd.ExecuteNonQuery();
                     LoadData();
                     ClearForm();
@@ -212,6 +238,107 @@ namespace HomeStay
         private void buttonClear_Click(object sender, EventArgs e)
         {
             ClearForm();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            TampilkanDataFiltered();
+        }
+
+        private void TampilkanDataFiltered()
+        {
+            string kolom = "Nama Tamu"; 
+            if (comboFilter.SelectedItem != null)
+            {
+                kolom = comboFilter.SelectedItem.ToString();
+            }
+            else
+            {
+                if (comboFilter.Items.Count > 0)
+                {
+                    comboFilter.SelectedIndex = 0;
+                    kolom = comboFilter.SelectedItem.ToString();
+                }
+            }
+
+            string keyword = btnSearch.Text.Trim(); 
+
+            string kolomDb = "";
+
+            switch (kolom)
+            {
+                case "Nama Tamu":
+                    kolomDb = "nama_tamu";
+                    break;
+                case "Jumlah Orang":
+                    kolomDb = "jumlah_tamu";
+                    break;
+                case "No. Pemesanan":
+                    kolomDb = "no_pemesanan";
+                    break;
+                case "Tanggal Check-In":
+                    kolomDb = "tanggal_pemesanan";
+                    break;
+                case "Tipe Kamar":
+                    kolomDb = "id_kamar"; 
+                    break;
+                default:
+                    kolomDb = "nama_tamu";
+                    break;
+            }
+
+            string query;
+            if (string.IsNullOrEmpty(keyword))
+            {
+                query = "SELECT * FROM pemesanan ORDER BY id_pemesanan DESC";
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(kolomDb))
+                {
+                    MessageBox.Show("Kolom filter tidak valid. Menampilkan semua data.");
+                    query = "SELECT * FROM pemesanan ORDER BY id_pemesanan DESC";
+                }
+                else
+                {
+                    query = $"SELECT * FROM pemesanan WHERE {kolomDb} LIKE @keyword ORDER BY id_pemesanan DESC";
+                }
+            }
+
+
+            DataTable dt = new DataTable();
+            using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        if (!string.IsNullOrEmpty(keyword) && !string.IsNullOrEmpty(kolomDb))
+                        {
+                            cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                        }
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        da.Fill(dt);
+                        dataGridReservasi.DataSource = dt;
+
+                        dataGridReservasi.Columns["id_pemesanan"].HeaderText = "ID Pemesanan";
+                        dataGridReservasi.Columns["id_pemesanan"].Visible = false;
+
+                        dataGridReservasi.Columns["nama_tamu"].HeaderText = "Nama Tamu";
+                        dataGridReservasi.Columns["tanggal_pemesanan"].HeaderText = "Tanggal Check-In";
+                        dataGridReservasi.Columns["jumlah_tamu"].HeaderText = "Jumlah Orang";
+                        dataGridReservasi.Columns["id_kamar"].HeaderText = "Tipe Kamar (ID)";
+                        dataGridReservasi.Columns["no_pemesanan"].HeaderText = "No. Pemesanan";
+                        dataGridReservasi.Columns["id_resepsionis"].Visible = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saat memfilter data: " + ex.Message);
+                }
+            }
         }
     }
 }
