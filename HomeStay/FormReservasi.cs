@@ -75,7 +75,43 @@ namespace HomeStay
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
+            if (selectedId == -1) return;
 
+            using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "UPDATE pemesanan SET nama_tamu=@nama_tamu, tanggal_pemesanan=@tanggal_pemesanan, jumlah_tamu=@jumlah_tamu, id_kamar=@id_kamar, id_resepsionis=@id_resepsionis WHERE id=@id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@nama_tamu", txtNamaTamu.Text);
+                    cmd.Parameters.AddWithValue("@tanggal_pemesanan", dateCheckIn.Value);
+                    cmd.Parameters.AddWithValue("@jumlah_tamu", txtJumlahTamu.Text);
+                    string idKamar = "";
+                    if (radioStandart.Checked)
+                    {
+                        idKamar = "1"; // ID kamar untuk Standart Room
+                    }
+                    else if (radioSuperior.Checked)
+                    {
+                        idKamar = "2"; // ID untuk Superior Room
+                    }
+                    else if (radioSuite.Checked)
+                    {
+                        idKamar = "3"; // ID untuk Suite Room
+                    }
+                    cmd.Parameters.AddWithValue("@id_kamar", idKamar);
+                    cmd.Parameters.AddWithValue("@id_resepsionis", 1);
+                    cmd.ExecuteNonQuery();
+                    LoadData();
+                    ClearForm();
+                    MessageBox.Show("Data pemesanan berhasil diperbarui!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal update: " + ex.Message);
+                }
+            }
         }
 
         private void buttonSimpan_Click(object sender, EventArgs e)
