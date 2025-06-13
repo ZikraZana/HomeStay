@@ -43,7 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.buttonPrev = new Guna.UI2.WinForms.Guna2Button();
             this.buttonNext = new Guna.UI2.WinForms.Guna2Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelPageInfo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,6 +53,9 @@
             this.buttonClear = new Guna.UI2.WinForms.Guna2Button();
             this.buttonPrint = new Guna.UI2.WinForms.Guna2Button();
             this.buttonSimpan = new Guna.UI2.WinForms.Guna2Button();
+            this.txtCari = new Guna.UI2.WinForms.Guna2TextBox();
+            this.buttonCari = new Guna.UI2.WinForms.Guna2Button();
+            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).BeginInit();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
@@ -285,16 +288,16 @@
             this.buttonNext.TabIndex = 36;
             this.buttonNext.Text = "Next";
             // 
-            // label5
+            // labelPageInfo
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(623, 509);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 25);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Halaman 1 dari 2";
+            this.labelPageInfo.AutoSize = true;
+            this.labelPageInfo.BackColor = System.Drawing.Color.Transparent;
+            this.labelPageInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelPageInfo.Location = new System.Drawing.Point(623, 509);
+            this.labelPageInfo.Name = "labelPageInfo";
+            this.labelPageInfo.Size = new System.Drawing.Size(159, 25);
+            this.labelPageInfo.TabIndex = 37;
+            this.labelPageInfo.Text = "Halaman 1 dari 2";
             // 
             // label6
             // 
@@ -353,11 +356,12 @@
             this.buttonEdit.FillColor = System.Drawing.Color.White;
             this.buttonEdit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonEdit.ForeColor = System.Drawing.Color.Black;
-            this.buttonEdit.Location = new System.Drawing.Point(574, 831);
+            this.buttonEdit.Location = new System.Drawing.Point(495, 812);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(103, 33);
             this.buttonEdit.TabIndex = 42;
             this.buttonEdit.Text = "Edit";
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonHapus
             // 
@@ -368,11 +372,12 @@
             this.buttonHapus.FillColor = System.Drawing.Color.White;
             this.buttonHapus.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonHapus.ForeColor = System.Drawing.Color.Black;
-            this.buttonHapus.Location = new System.Drawing.Point(704, 831);
+            this.buttonHapus.Location = new System.Drawing.Point(704, 812);
             this.buttonHapus.Name = "buttonHapus";
             this.buttonHapus.Size = new System.Drawing.Size(103, 33);
             this.buttonHapus.TabIndex = 43;
             this.buttonHapus.Text = "Hapus";
+            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
             // 
             // buttonClear
             // 
@@ -383,11 +388,12 @@
             this.buttonClear.FillColor = System.Drawing.Color.White;
             this.buttonClear.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonClear.ForeColor = System.Drawing.Color.Black;
-            this.buttonClear.Location = new System.Drawing.Point(574, 870);
+            this.buttonClear.Location = new System.Drawing.Point(495, 851);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(103, 33);
             this.buttonClear.TabIndex = 44;
             this.buttonClear.Text = "Clear";
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // buttonPrint
             // 
@@ -398,11 +404,12 @@
             this.buttonPrint.FillColor = System.Drawing.Color.White;
             this.buttonPrint.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonPrint.ForeColor = System.Drawing.Color.Black;
-            this.buttonPrint.Location = new System.Drawing.Point(704, 870);
+            this.buttonPrint.Location = new System.Drawing.Point(704, 851);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(103, 33);
             this.buttonPrint.TabIndex = 45;
             this.buttonPrint.Text = "Print";
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // buttonSimpan
             // 
@@ -413,11 +420,62 @@
             this.buttonSimpan.FillColor = System.Drawing.Color.White;
             this.buttonSimpan.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonSimpan.ForeColor = System.Drawing.Color.Black;
-            this.buttonSimpan.Location = new System.Drawing.Point(574, 792);
+            this.buttonSimpan.Location = new System.Drawing.Point(495, 770);
             this.buttonSimpan.Name = "buttonSimpan";
-            this.buttonSimpan.Size = new System.Drawing.Size(233, 33);
+            this.buttonSimpan.Size = new System.Drawing.Size(312, 33);
             this.buttonSimpan.TabIndex = 46;
             this.buttonSimpan.Text = "Simpan";
+            this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
+            // 
+            // txtCari
+            // 
+            this.txtCari.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCari.DefaultText = "";
+            this.txtCari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCari.Location = new System.Drawing.Point(127, 767);
+            this.txtCari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCari.Name = "txtCari";
+            this.txtCari.PlaceholderText = "";
+            this.txtCari.SelectedText = "";
+            this.txtCari.Size = new System.Drawing.Size(148, 37);
+            this.txtCari.TabIndex = 48;
+            // 
+            // buttonCari
+            // 
+            this.buttonCari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonCari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonCari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonCari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonCari.FillColor = System.Drawing.Color.White;
+            this.buttonCari.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonCari.ForeColor = System.Drawing.Color.Black;
+            this.buttonCari.Location = new System.Drawing.Point(42, 812);
+            this.buttonCari.Name = "buttonCari";
+            this.buttonCari.Size = new System.Drawing.Size(233, 33);
+            this.buttonCari.TabIndex = 49;
+            this.buttonCari.Text = "Cari";
+            this.buttonCari.Click += new System.EventHandler(this.buttonCari_Click);
+            // 
+            // comboBoxFilter
+            // 
+            this.comboBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBoxFilter.FormattingEnabled = true;
+            this.comboBoxFilter.Items.AddRange(new object[] {
+            "tipe_kamar",
+            "nama_tamu",
+            "tanggal_pemesanan",
+            "tanggal_check_in",
+            "jumlah_tamu"});
+            this.comboBoxFilter.Location = new System.Drawing.Point(39, 770);
+            this.comboBoxFilter.Name = "comboBoxFilter";
+            this.comboBoxFilter.Size = new System.Drawing.Size(81, 33);
+            this.comboBoxFilter.TabIndex = 50;
             // 
             // FormReservasi
             // 
@@ -425,6 +483,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(827, 925);
+            this.Controls.Add(this.comboBoxFilter);
+            this.Controls.Add(this.buttonCari);
+            this.Controls.Add(this.txtCari);
             this.Controls.Add(this.buttonSimpan);
             this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.buttonClear);
@@ -434,7 +495,7 @@
             this.Controls.Add(this.dateCheckIn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelPageInfo);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.label4);
@@ -477,7 +538,7 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Button buttonPrev;
         private Guna.UI2.WinForms.Guna2Button buttonNext;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelPageInfo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -487,5 +548,8 @@
         private Guna.UI2.WinForms.Guna2Button buttonClear;
         private Guna.UI2.WinForms.Guna2Button buttonPrint;
         private Guna.UI2.WinForms.Guna2Button buttonSimpan;
+        private Guna.UI2.WinForms.Guna2TextBox txtCari;
+        private Guna.UI2.WinForms.Guna2Button buttonCari;
+        private System.Windows.Forms.ComboBox comboBoxFilter;
     }
 }

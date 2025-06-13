@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,13 @@ namespace HomeStay
     public partial class FormReservasi : Form
     {
         private int selectedId = -1;
+
+        int pageSize = 10; // Jumlah data per halaman
+        int currentPage = 1; // Halaman saat ini
+        int totalPages = 1; // Total halaman
+        int totalRecords = 0; // Total data di database
+
+        bool isFiltered = false; // Menandakan apakah data sedang difilter
         private void LoadData()
         {
             DataTable dt = new DataTable();
@@ -241,6 +249,110 @@ namespace HomeStay
             }
         }
 
+        private void buttonCari_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            isFiltered = true;
+            TampilkanDataFiltered();
+        }
 
+        private void TampilkanDataFiltered()
+        {
+            string kolom = comboBoxFilter.SelectedItem?.ToString();
+            string keyword = txtCari.Text.Trim();
+
+            string kolomDb = "nama_tamu"; // Default kolom pencarian
+            if (kolom == "Tanggal Pemesanan")
+            {
+                kolomDb = "tanggal_pemesanan";
+            }
+            else if (kolom == "Tanggal Check-In")
+            {
+                kolomDb = "tanggal_check_in";
+            }
+            else if (kolom == "Jumlah Tamu")
+            {
+                kolomDb = "jumlah_tamu";
+            }
+            else if (kolom == "Tipe Kamar")
+            {
+                kolomDb = "id_kamar";
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
+            {
+                conn.Open();
+                string countQuery = $"SELECT Count(*) FROM pemesanan WHERE {kolomDb} LIKE @keyword";
+                MySqlCommand countCmd = new MySqlCommand(countQuery, conn);
+                countCmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                totalRecords = Convert.ToInt32(countCmd.ExecuteScalar());
+
+                totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
+                if (currentPage > totalPages)
+                {
+                    currentPage = totalPages;
+                }
+                if (currentPage < 1)
+                {
+                    currentPage = 1;
+                }
+                int offset = (currentPage - 1) * pageSize;
+
+                string query = $"SELECT * FROM pemesanan WHERE {kolomDb} LIKE @keyword ORDER BY id_pemesanan DESC LIMIT @limit OFFSET @offset";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                cmd.Parameters.AddWithValue("@limit", pageSize);
+                cmd.Parameters.AddWithValue("@offset", offset);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridReservasi.DataSource = dt;
+
+                labelPageInfo.Text = $"Halaman {currentPage} dari {totalPages}";
+            }
+
+        }
+
+        private void TampilkanDataDefault()
+        {
+            using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
+            {
+                conn.Open();
+
+                string countQuery = "SELECT Count(*) from pemesanan";
+                MySqlCommand countCmd = new MySqlCommand(countQuery, conn);
+                totalRecords = Convert.ToInt32(countCmd.ExecuteScalar());
+
+                totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
+                if (currentPage > totalPages)
+                {
+                    currentPage = totalPages;
+                }
+                if (currentPage < 1)
+                {
+                    currentPage = 1;
+                }
+
+                int offset = (currentPage - 1) * pageSize;
+
+                string query = $"SELECT * FROM pemesanan ORDER BY id DESC LIMIT @limit OFFSET @offset";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@limit", pageSize);
+                cmd.Parameters.AddWithValue("@offset", offset);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridReservasi.DataSource = dt;
+
+                labelPageInfo.Text = $"Halaman {currentPage} dari {totalPages}";
+            }
+        }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
