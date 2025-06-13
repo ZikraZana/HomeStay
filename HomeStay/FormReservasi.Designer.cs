@@ -272,6 +272,7 @@
             this.buttonPrev.Size = new System.Drawing.Size(103, 33);
             this.buttonPrev.TabIndex = 35;
             this.buttonPrev.Text = "Prev";
+            this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
             // 
             // buttonNext
             // 
@@ -287,6 +288,7 @@
             this.buttonNext.Size = new System.Drawing.Size(103, 33);
             this.buttonNext.TabIndex = 36;
             this.buttonNext.Text = "Next";
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // labelPageInfo
             // 
@@ -436,7 +438,7 @@
             this.txtCari.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCari.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCari.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCari.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtCari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCari.Location = new System.Drawing.Point(127, 767);
             this.txtCari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -464,7 +466,7 @@
             // 
             // comboBoxFilter
             // 
-            this.comboBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.Items.AddRange(new object[] {
             "tipe_kamar",
@@ -474,7 +476,7 @@
             "jumlah_tamu"});
             this.comboBoxFilter.Location = new System.Drawing.Point(39, 770);
             this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(81, 33);
+            this.comboBoxFilter.Size = new System.Drawing.Size(81, 28);
             this.comboBoxFilter.TabIndex = 50;
             // 
             // FormReservasi
@@ -513,6 +515,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormReservasi";
             this.Text = "FormReservasi";
+            this.Load += new System.EventHandler(this.FormReservasi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).EndInit();
             this.guna2ContainerControl1.ResumeLayout(false);
             this.guna2ContainerControl1.PerformLayout();

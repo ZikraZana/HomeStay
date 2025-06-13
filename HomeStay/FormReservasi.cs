@@ -16,7 +16,7 @@ namespace HomeStay
     {
         private int selectedId = -1;
 
-        int pageSize = 10; // Jumlah data per halaman
+        int pageSize = 3; // Jumlah data per halaman
         int currentPage = 1; // Halaman saat ini
         int totalPages = 1; // Total halaman
         int totalRecords = 0; // Total data di database
@@ -30,7 +30,20 @@ namespace HomeStay
                 try
                 {
                     conn.Open();
-                    string query = "SELECT * FROM pemesanan";
+                    string query = @"
+                            SELECT 
+                                p.id_pemesanan,
+                                p.nama_tamu,
+                                p.tanggal_pemesanan,
+                                p.tanggal_check_in,
+                                p.jumlah_tamu,
+                                k.tipe_kamar,
+                                p.no_pemesanan,
+                                p.id_resepsionis
+                            FROM pemesanan p
+                            JOIN kamar k ON p.id_kamar = k.id_kamar
+                        ";
+
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
@@ -44,7 +57,7 @@ namespace HomeStay
                     dataGridReservasi.Columns["tanggal_pemesanan"].HeaderText = "Tanggal Pemesanan";
                     dataGridReservasi.Columns["tanggal_check_in"].HeaderText = "Tanggal Check-In";
                     dataGridReservasi.Columns["jumlah_tamu"].HeaderText = "Jumlah Orang";
-                    dataGridReservasi.Columns["id_kamar"].HeaderText = "Tipe Kamar (ID)";
+                    dataGridReservasi.Columns["tipe_kamar"].HeaderText = "Tipe Kamar";
                     dataGridReservasi.Columns["no_pemesanan"].HeaderText = "No. Pemesanan";
                     dataGridReservasi.Columns["id_resepsionis"].Visible = false;
                 }
@@ -246,6 +259,9 @@ namespace HomeStay
                 radioSuite.Checked = (idKamarFromGrid == "3");
 
                 buttonSimpan.Enabled = false;
+
+                MessageBox.Show("ID Kamar dari Grid: " + datePemesanan.Text);
+
             }
         }
 
@@ -288,6 +304,9 @@ namespace HomeStay
                 totalRecords = Convert.ToInt32(countCmd.ExecuteScalar());
 
                 totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
+
+                DateTimePicker dateFilter = new DateTimePicker();
+
                 if (currentPage > totalPages)
                 {
                     currentPage = totalPages;
@@ -336,7 +355,7 @@ namespace HomeStay
 
                 int offset = (currentPage - 1) * pageSize;
 
-                string query = $"SELECT * FROM pemesanan ORDER BY id DESC LIMIT @limit OFFSET @offset";
+                string query = $"SELECT * FROM pemesanan ORDER BY id_pemesanan DESC LIMIT @limit OFFSET @offset";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@limit", pageSize);
                 cmd.Parameters.AddWithValue("@offset", offset);
@@ -349,10 +368,51 @@ namespace HomeStay
                 labelPageInfo.Text = $"Halaman {currentPage} dari {totalPages}";
             }
         }
+        private void buttonPrev_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                if (isFiltered)
+                {
+                    TampilkanDataFiltered();
+                }
+                else
+                {
+                    TampilkanDataDefault();
+                }
+            }
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                if (isFiltered)
+                {
+                    TampilkanDataFiltered();
+                }
+                else
+                {
+                    TampilkanDataDefault();
+                }
+            }
+        }
+
+        private void FormReservasi_Load(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            isFiltered = false;
+            TampilkanDataDefault();
+        }
+
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }
