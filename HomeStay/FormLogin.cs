@@ -45,7 +45,7 @@ namespace HomeStay
                 try
                 {
                     conn.Open();
-                    string query = "Select password from resepsionis where username = @username";
+                    string query = "Select * from resepsionis where username = @username";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@username", username);
 
@@ -57,6 +57,10 @@ namespace HomeStay
                         bool isValid = BCrypt.Net.BCrypt.Verify(password, hashFromDb);
                         if (isValid)
                         {
+                            Session.id_resepsionis = reader.GetInt32("id_resepsionis");
+                            Session.username = reader.GetString("username");
+                            Session.nama = reader.GetString("nama");
+
                             // Login sukses 
                             MessageBox.Show("Login berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             FormReservasi frm = new FormReservasi();

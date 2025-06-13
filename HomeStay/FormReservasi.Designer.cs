@@ -28,384 +28,464 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelNama = new System.Windows.Forms.Label();
-            this.labelTanggal = new System.Windows.Forms.Label();
-            this.txtNamaTamu = new System.Windows.Forms.TextBox();
-            this.dateCheckIn = new System.Windows.Forms.DateTimePicker();
-            this.txtJumlahTamu = new System.Windows.Forms.TextBox();
-            this.radioStandart = new System.Windows.Forms.RadioButton();
-            this.labelJumlah = new System.Windows.Forms.Label();
-            this.labelTipe = new System.Windows.Forms.Label();
-            this.radioSuperior = new System.Windows.Forms.RadioButton();
-            this.radioSuite = new System.Windows.Forms.RadioButton();
             this.dataGridReservasi = new System.Windows.Forms.DataGridView();
-            this.groupAction = new System.Windows.Forms.GroupBox();
-            this.buttonClear = new System.Windows.Forms.Button();
-            this.buttonPrint = new System.Windows.Forms.Button();
-            this.buttonHapus = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonSimpan = new System.Windows.Forms.Button();
-            this.groupBoxForm = new System.Windows.Forms.GroupBox();
-            this.buttonPrev = new System.Windows.Forms.Button();
-            this.buttonNext = new System.Windows.Forms.Button();
-            this.comboFilter = new System.Windows.Forms.ComboBox();
-            this.groupBoxFilter = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.labelHalaman = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNamaTamu = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtJumlahTamu = new Guna.UI2.WinForms.Guna2TextBox();
+            this.datePemesanan = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
+            this.radioSuite = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.radioStandart = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.radioSuperior = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonPrev = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonNext = new Guna.UI2.WinForms.Guna2Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateCheckIn = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.buttonEdit = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonHapus = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonClear = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.buttonSimpan = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).BeginInit();
-            this.groupAction.SuspendLayout();
-            this.groupBoxForm.SuspendLayout();
-            this.groupBoxFilter.SuspendLayout();
+            this.guna2ContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.SuspendLayout();
-            // 
-            // labelNama
-            // 
-            this.labelNama.AutoSize = true;
-            this.labelNama.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNama.Location = new System.Drawing.Point(1, 23);
-            this.labelNama.Name = "labelNama";
-            this.labelNama.Size = new System.Drawing.Size(44, 16);
-            this.labelNama.TabIndex = 0;
-            this.labelNama.Text = "Nama";
-            // 
-            // labelTanggal
-            // 
-            this.labelTanggal.AutoSize = true;
-            this.labelTanggal.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTanggal.Location = new System.Drawing.Point(1, 60);
-            this.labelTanggal.Name = "labelTanggal";
-            this.labelTanggal.Size = new System.Drawing.Size(122, 16);
-            this.labelTanggal.TabIndex = 1;
-            this.labelTanggal.Text = "Tanggal Check-In";
-            // 
-            // txtNamaTamu
-            // 
-            this.txtNamaTamu.Location = new System.Drawing.Point(132, 23);
-            this.txtNamaTamu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNamaTamu.Name = "txtNamaTamu";
-            this.txtNamaTamu.Size = new System.Drawing.Size(211, 22);
-            this.txtNamaTamu.TabIndex = 3;
-            this.txtNamaTamu.TextChanged += new System.EventHandler(this.txtNamaTamu_TextChanged);
-            // 
-            // dateCheckIn
-            // 
-            this.dateCheckIn.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateCheckIn.Location = new System.Drawing.Point(132, 60);
-            this.dateCheckIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateCheckIn.Name = "dateCheckIn";
-            this.dateCheckIn.Size = new System.Drawing.Size(178, 23);
-            this.dateCheckIn.TabIndex = 5;
-            // 
-            // txtJumlahTamu
-            // 
-            this.txtJumlahTamu.Location = new System.Drawing.Point(132, 90);
-            this.txtJumlahTamu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtJumlahTamu.Name = "txtJumlahTamu";
-            this.txtJumlahTamu.Size = new System.Drawing.Size(211, 22);
-            this.txtJumlahTamu.TabIndex = 6;
-            this.txtJumlahTamu.TextChanged += new System.EventHandler(this.txtJumlahTamu_TextChanged);
-            // 
-            // radioStandart
-            // 
-            this.radioStandart.AutoSize = true;
-            this.radioStandart.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioStandart.Location = new System.Drawing.Point(132, 139);
-            this.radioStandart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioStandart.Name = "radioStandart";
-            this.radioStandart.Size = new System.Drawing.Size(180, 20);
-            this.radioStandart.TabIndex = 7;
-            this.radioStandart.TabStop = true;
-            this.radioStandart.Text = "Standart Room (Max 3)";
-            this.radioStandart.UseVisualStyleBackColor = true;
-            // 
-            // labelJumlah
-            // 
-            this.labelJumlah.AutoSize = true;
-            this.labelJumlah.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJumlah.Location = new System.Drawing.Point(1, 92);
-            this.labelJumlah.Name = "labelJumlah";
-            this.labelJumlah.Size = new System.Drawing.Size(94, 16);
-            this.labelJumlah.TabIndex = 2;
-            this.labelJumlah.Text = "Jumlah Orang";
-            this.labelJumlah.Click += new System.EventHandler(this.labelJumlah_Click);
-            // 
-            // labelTipe
-            // 
-            this.labelTipe.AutoSize = true;
-            this.labelTipe.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTipe.Location = new System.Drawing.Point(1, 139);
-            this.labelTipe.Name = "labelTipe";
-            this.labelTipe.Size = new System.Drawing.Size(81, 16);
-            this.labelTipe.TabIndex = 8;
-            this.labelTipe.Text = "Tipe Kamar";
-            // 
-            // radioSuperior
-            // 
-            this.radioSuperior.AutoSize = true;
-            this.radioSuperior.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioSuperior.Location = new System.Drawing.Point(132, 172);
-            this.radioSuperior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioSuperior.Name = "radioSuperior";
-            this.radioSuperior.Size = new System.Drawing.Size(179, 20);
-            this.radioSuperior.TabIndex = 9;
-            this.radioSuperior.TabStop = true;
-            this.radioSuperior.Text = "Superior Room (Max 5)";
-            this.radioSuperior.UseVisualStyleBackColor = true;
-            // 
-            // radioSuite
-            // 
-            this.radioSuite.AutoSize = true;
-            this.radioSuite.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioSuite.Location = new System.Drawing.Point(132, 207);
-            this.radioSuite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioSuite.Name = "radioSuite";
-            this.radioSuite.Size = new System.Drawing.Size(156, 20);
-            this.radioSuite.TabIndex = 10;
-            this.radioSuite.TabStop = true;
-            this.radioSuite.Text = "Suite Room (Max 7)";
-            this.radioSuite.UseVisualStyleBackColor = true;
             // 
             // dataGridReservasi
             // 
+            this.dataGridReservasi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridReservasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridReservasi.Location = new System.Drawing.Point(513, 62);
+            this.dataGridReservasi.Location = new System.Drawing.Point(34, 171);
             this.dataGridReservasi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridReservasi.Name = "dataGridReservasi";
             this.dataGridReservasi.RowHeadersWidth = 62;
             this.dataGridReservasi.RowTemplate.Height = 28;
-            this.dataGridReservasi.Size = new System.Drawing.Size(573, 289);
+            this.dataGridReservasi.Size = new System.Drawing.Size(760, 308);
             this.dataGridReservasi.TabIndex = 11;
-            this.dataGridReservasi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReservasi_CellClick);
+            this.dataGridReservasi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReservasi_CellClick);
             // 
-            // groupAction
+            // label1
             // 
-            this.groupAction.Controls.Add(this.buttonClear);
-            this.groupAction.Controls.Add(this.buttonPrint);
-            this.groupAction.Controls.Add(this.buttonHapus);
-            this.groupAction.Controls.Add(this.buttonEdit);
-            this.groupAction.Controls.Add(this.buttonSimpan);
-            this.groupAction.Location = new System.Drawing.Point(14, 345);
-            this.groupAction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupAction.Name = "groupAction";
-            this.groupAction.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupAction.Size = new System.Drawing.Size(481, 123);
-            this.groupAction.TabIndex = 12;
-            this.groupAction.TabStop = false;
-            this.groupAction.Text = "Action";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(211, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(426, 42);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Manajemen Data Tamu";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // buttonClear
+            // label2
             // 
-            this.buttonClear.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.Location = new System.Drawing.Point(348, 34);
-            this.buttonClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(85, 28);
-            this.buttonClear.TabIndex = 18;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 565);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 25);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Nama Tamu";
             // 
-            // buttonPrint
+            // txtNamaTamu
             // 
-            this.buttonPrint.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrint.Location = new System.Drawing.Point(257, 34);
-            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(85, 28);
-            this.buttonPrint.TabIndex = 17;
-            this.buttonPrint.Text = "Print";
-            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.txtNamaTamu.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNamaTamu.DefaultText = "";
+            this.txtNamaTamu.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNamaTamu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNamaTamu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNamaTamu.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNamaTamu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNamaTamu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNamaTamu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNamaTamu.Location = new System.Drawing.Point(40, 595);
+            this.txtNamaTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNamaTamu.Name = "txtNamaTamu";
+            this.txtNamaTamu.PlaceholderText = "";
+            this.txtNamaTamu.SelectedText = "";
+            this.txtNamaTamu.Size = new System.Drawing.Size(235, 37);
+            this.txtNamaTamu.TabIndex = 22;
             // 
-            // buttonHapus
+            // txtJumlahTamu
             // 
-            this.buttonHapus.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHapus.Location = new System.Drawing.Point(166, 34);
-            this.buttonHapus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonHapus.Name = "buttonHapus";
-            this.buttonHapus.Size = new System.Drawing.Size(85, 28);
-            this.buttonHapus.TabIndex = 15;
-            this.buttonHapus.Text = "Hapus";
-            this.buttonHapus.UseVisualStyleBackColor = true;
-            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
+            this.txtJumlahTamu.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtJumlahTamu.DefaultText = "";
+            this.txtJumlahTamu.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtJumlahTamu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtJumlahTamu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtJumlahTamu.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtJumlahTamu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtJumlahTamu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJumlahTamu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtJumlahTamu.Location = new System.Drawing.Point(309, 595);
+            this.txtJumlahTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtJumlahTamu.Name = "txtJumlahTamu";
+            this.txtJumlahTamu.PlaceholderText = "";
+            this.txtJumlahTamu.SelectedText = "";
+            this.txtJumlahTamu.Size = new System.Drawing.Size(215, 37);
+            this.txtJumlahTamu.TabIndex = 24;
             // 
-            // buttonEdit
+            // datePemesanan
             // 
-            this.buttonEdit.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.Location = new System.Drawing.Point(76, 34);
-            this.buttonEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(85, 28);
-            this.buttonEdit.TabIndex = 14;
-            this.buttonEdit.Text = "Edit";
-            this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.datePemesanan.BackColor = System.Drawing.Color.White;
+            this.datePemesanan.Checked = true;
+            this.datePemesanan.FillColor = System.Drawing.Color.White;
+            this.datePemesanan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.datePemesanan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datePemesanan.Location = new System.Drawing.Point(39, 682);
+            this.datePemesanan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.datePemesanan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.datePemesanan.Name = "datePemesanan";
+            this.datePemesanan.Size = new System.Drawing.Size(236, 37);
+            this.datePemesanan.TabIndex = 25;
+            this.datePemesanan.Value = new System.DateTime(2025, 6, 13, 20, 35, 0, 130);
             // 
-            // buttonSimpan
+            // guna2ContainerControl1
             // 
-            this.buttonSimpan.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSimpan.Location = new System.Drawing.Point(132, 77);
-            this.buttonSimpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSimpan.Name = "buttonSimpan";
-            this.buttonSimpan.Size = new System.Drawing.Size(243, 28);
-            this.buttonSimpan.TabIndex = 13;
-            this.buttonSimpan.Text = "Simpan";
-            this.buttonSimpan.UseVisualStyleBackColor = true;
-            this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
+            this.guna2ContainerControl1.BorderRadius = 10;
+            this.guna2ContainerControl1.BorderThickness = 1;
+            this.guna2ContainerControl1.Controls.Add(this.label1);
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(-5, 82);
+            this.guna2ContainerControl1.Name = "guna2ContainerControl1";
+            this.guna2ContainerControl1.Size = new System.Drawing.Size(870, 74);
+            this.guna2ContainerControl1.TabIndex = 23;
+            this.guna2ContainerControl1.Text = "guna2ContainerControl1";
             // 
-            // groupBoxForm
+            // radioSuite
             // 
-            this.groupBoxForm.Controls.Add(this.txtJumlahTamu);
-            this.groupBoxForm.Controls.Add(this.labelNama);
-            this.groupBoxForm.Controls.Add(this.labelTanggal);
-            this.groupBoxForm.Controls.Add(this.radioSuite);
-            this.groupBoxForm.Controls.Add(this.labelJumlah);
-            this.groupBoxForm.Controls.Add(this.radioSuperior);
-            this.groupBoxForm.Controls.Add(this.txtNamaTamu);
-            this.groupBoxForm.Controls.Add(this.labelTipe);
-            this.groupBoxForm.Controls.Add(this.dateCheckIn);
-            this.groupBoxForm.Controls.Add(this.radioStandart);
-            this.groupBoxForm.Location = new System.Drawing.Point(14, 106);
-            this.groupBoxForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxForm.Name = "groupBoxForm";
-            this.groupBoxForm.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxForm.Size = new System.Drawing.Size(396, 235);
-            this.groupBoxForm.TabIndex = 13;
-            this.groupBoxForm.TabStop = false;
-            this.groupBoxForm.Text = "Reservasi";
+            this.radioSuite.AutoSize = true;
+            this.radioSuite.BackColor = System.Drawing.Color.Transparent;
+            this.radioSuite.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radioSuite.CheckedState.BorderThickness = 0;
+            this.radioSuite.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radioSuite.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radioSuite.CheckedState.InnerOffset = -4;
+            this.radioSuite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioSuite.Location = new System.Drawing.Point(574, 702);
+            this.radioSuite.Name = "radioSuite";
+            this.radioSuite.Size = new System.Drawing.Size(150, 29);
+            this.radioSuite.TabIndex = 32;
+            this.radioSuite.Text = "Suite (max 7)";
+            this.radioSuite.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radioSuite.UncheckedState.BorderThickness = 2;
+            this.radioSuite.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radioSuite.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radioSuite.UseVisualStyleBackColor = false;
+            // 
+            // radioStandart
+            // 
+            this.radioStandart.AutoSize = true;
+            this.radioStandart.BackColor = System.Drawing.Color.Transparent;
+            this.radioStandart.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radioStandart.CheckedState.BorderThickness = 0;
+            this.radioStandart.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radioStandart.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radioStandart.CheckedState.InnerOffset = -4;
+            this.radioStandart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioStandart.Location = new System.Drawing.Point(574, 632);
+            this.radioStandart.Name = "radioStandart";
+            this.radioStandart.Size = new System.Drawing.Size(174, 29);
+            this.radioStandart.TabIndex = 30;
+            this.radioStandart.Text = "Standar (max 3)";
+            this.radioStandart.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radioStandart.UncheckedState.BorderThickness = 2;
+            this.radioStandart.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radioStandart.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radioStandart.UseVisualStyleBackColor = false;
+            // 
+            // radioSuperior
+            // 
+            this.radioSuperior.AutoSize = true;
+            this.radioSuperior.BackColor = System.Drawing.Color.Transparent;
+            this.radioSuperior.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radioSuperior.CheckedState.BorderThickness = 0;
+            this.radioSuperior.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.radioSuperior.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.radioSuperior.CheckedState.InnerOffset = -4;
+            this.radioSuperior.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioSuperior.Location = new System.Drawing.Point(574, 667);
+            this.radioSuperior.Name = "radioSuperior";
+            this.radioSuperior.Size = new System.Drawing.Size(179, 29);
+            this.radioSuperior.TabIndex = 31;
+            this.radioSuperior.Text = "Superior (max 5)";
+            this.radioSuperior.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.radioSuperior.UncheckedState.BorderThickness = 2;
+            this.radioSuperior.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.radioSuperior.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.radioSuperior.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.SandyBrown;
+            this.label3.Location = new System.Drawing.Point(93, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(179, 54);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "HomeStay";
+            // 
+            // pictureBoxIcon
+            // 
+            this.pictureBoxIcon.Image = global::HomeStay.Properties.Resources.building;
+            this.pictureBoxIcon.Location = new System.Drawing.Point(37, 18);
+            this.pictureBoxIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxIcon.Name = "pictureBoxIcon";
+            this.pictureBoxIcon.Size = new System.Drawing.Size(50, 48);
+            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxIcon.TabIndex = 33;
+            this.pictureBoxIcon.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(304, 565);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(132, 25);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Jumlah Tamu";
             // 
             // buttonPrev
             // 
-            this.buttonPrev.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrev.Location = new System.Drawing.Point(513, 366);
-            this.buttonPrev.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonPrev.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonPrev.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonPrev.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonPrev.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonPrev.FillColor = System.Drawing.Color.White;
+            this.buttonPrev.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonPrev.ForeColor = System.Drawing.Color.Black;
+            this.buttonPrev.Location = new System.Drawing.Point(37, 501);
             this.buttonPrev.Name = "buttonPrev";
-            this.buttonPrev.Size = new System.Drawing.Size(95, 29);
-            this.buttonPrev.TabIndex = 14;
+            this.buttonPrev.Size = new System.Drawing.Size(103, 33);
+            this.buttonPrev.TabIndex = 35;
             this.buttonPrev.Text = "Prev";
-            this.buttonPrev.UseVisualStyleBackColor = true;
             // 
             // buttonNext
             // 
-            this.buttonNext.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNext.Location = new System.Drawing.Point(613, 366);
-            this.buttonNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonNext.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonNext.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonNext.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonNext.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonNext.FillColor = System.Drawing.Color.White;
+            this.buttonNext.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonNext.ForeColor = System.Drawing.Color.Black;
+            this.buttonNext.Location = new System.Drawing.Point(169, 501);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(95, 29);
-            this.buttonNext.TabIndex = 15;
+            this.buttonNext.Size = new System.Drawing.Size(103, 33);
+            this.buttonNext.TabIndex = 36;
             this.buttonNext.Text = "Next";
-            this.buttonNext.UseVisualStyleBackColor = true;
             // 
-            // comboFilter
+            // label5
             // 
-            this.comboFilter.FormattingEnabled = true;
-            this.comboFilter.Items.AddRange(new object[] {
-            "Nama Tamu",
-            "Tanggal",
-            "Jumlah Orang",
-            "Tipe Kamar"});
-            this.comboFilter.Location = new System.Drawing.Point(5, 30);
-            this.comboFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboFilter.Name = "comboFilter";
-            this.comboFilter.Size = new System.Drawing.Size(190, 24);
-            this.comboFilter.TabIndex = 16;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(623, 509);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(159, 25);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "Halaman 1 dari 2";
             // 
-            // groupBoxFilter
+            // label6
             // 
-            this.groupBoxFilter.Controls.Add(this.btnSearch);
-            this.groupBoxFilter.Controls.Add(this.txtSearch);
-            this.groupBoxFilter.Controls.Add(this.comboFilter);
-            this.groupBoxFilter.Location = new System.Drawing.Point(14, 10);
-            this.groupBoxFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxFilter.Name = "groupBoxFilter";
-            this.groupBoxFilter.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxFilter.Size = new System.Drawing.Size(393, 91);
-            this.groupBoxFilter.TabIndex = 17;
-            this.groupBoxFilter.TabStop = false;
-            this.groupBoxFilter.Text = "Filter";
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(35, 650);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(194, 25);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "Tanggal Pemasanan";
             // 
-            // btnSearch
+            // label7
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(5, 58);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(382, 29);
-            this.btnSearch.TabIndex = 18;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(569, 595);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(114, 25);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Tipe Kamar";
             // 
-            // txtSearch
+            // label8
             // 
-            this.txtSearch.Location = new System.Drawing.Point(200, 32);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(188, 22);
-            this.txtSearch.TabIndex = 17;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(303, 650);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(168, 25);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "Tanggal Check-in";
             // 
-            // labelHalaman
+            // dateCheckIn
             // 
-            this.labelHalaman.AutoSize = true;
-            this.labelHalaman.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHalaman.Location = new System.Drawing.Point(962, 366);
-            this.labelHalaman.Name = "labelHalaman";
-            this.labelHalaman.Size = new System.Drawing.Size(118, 16);
-            this.labelHalaman.TabIndex = 18;
-            this.labelHalaman.Text = "Halaman 1 dari 2";
+            this.dateCheckIn.BackColor = System.Drawing.Color.White;
+            this.dateCheckIn.Checked = true;
+            this.dateCheckIn.FillColor = System.Drawing.Color.White;
+            this.dateCheckIn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dateCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateCheckIn.Location = new System.Drawing.Point(308, 682);
+            this.dateCheckIn.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateCheckIn.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateCheckIn.Name = "dateCheckIn";
+            this.dateCheckIn.Size = new System.Drawing.Size(215, 37);
+            this.dateCheckIn.TabIndex = 40;
+            this.dateCheckIn.Value = new System.DateTime(2025, 6, 13, 20, 35, 0, 130);
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonEdit.FillColor = System.Drawing.Color.White;
+            this.buttonEdit.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonEdit.ForeColor = System.Drawing.Color.Black;
+            this.buttonEdit.Location = new System.Drawing.Point(574, 831);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(103, 33);
+            this.buttonEdit.TabIndex = 42;
+            this.buttonEdit.Text = "Edit";
+            // 
+            // buttonHapus
+            // 
+            this.buttonHapus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonHapus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonHapus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonHapus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonHapus.FillColor = System.Drawing.Color.White;
+            this.buttonHapus.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonHapus.ForeColor = System.Drawing.Color.Black;
+            this.buttonHapus.Location = new System.Drawing.Point(704, 831);
+            this.buttonHapus.Name = "buttonHapus";
+            this.buttonHapus.Size = new System.Drawing.Size(103, 33);
+            this.buttonHapus.TabIndex = 43;
+            this.buttonHapus.Text = "Hapus";
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonClear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonClear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonClear.FillColor = System.Drawing.Color.White;
+            this.buttonClear.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonClear.ForeColor = System.Drawing.Color.Black;
+            this.buttonClear.Location = new System.Drawing.Point(574, 870);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(103, 33);
+            this.buttonClear.TabIndex = 44;
+            this.buttonClear.Text = "Clear";
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonPrint.FillColor = System.Drawing.Color.White;
+            this.buttonPrint.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonPrint.ForeColor = System.Drawing.Color.Black;
+            this.buttonPrint.Location = new System.Drawing.Point(704, 870);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(103, 33);
+            this.buttonPrint.TabIndex = 45;
+            this.buttonPrint.Text = "Print";
+            // 
+            // buttonSimpan
+            // 
+            this.buttonSimpan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.buttonSimpan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.buttonSimpan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.buttonSimpan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.buttonSimpan.FillColor = System.Drawing.Color.White;
+            this.buttonSimpan.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonSimpan.ForeColor = System.Drawing.Color.Black;
+            this.buttonSimpan.Location = new System.Drawing.Point(574, 792);
+            this.buttonSimpan.Name = "buttonSimpan";
+            this.buttonSimpan.Size = new System.Drawing.Size(233, 33);
+            this.buttonSimpan.TabIndex = 46;
+            this.buttonSimpan.Text = "Simpan";
             // 
             // FormReservasi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 488);
-            this.Controls.Add(this.labelHalaman);
-            this.Controls.Add(this.groupBoxFilter);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(827, 925);
+            this.Controls.Add(this.buttonSimpan);
+            this.Controls.Add(this.buttonPrint);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonHapus);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dateCheckIn);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonPrev);
-            this.Controls.Add(this.groupBoxForm);
-            this.Controls.Add(this.groupAction);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pictureBoxIcon);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.radioSuite);
+            this.Controls.Add(this.radioStandart);
+            this.Controls.Add(this.radioSuperior);
+            this.Controls.Add(this.datePemesanan);
+            this.Controls.Add(this.txtJumlahTamu);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtNamaTamu);
             this.Controls.Add(this.dataGridReservasi);
+            this.Controls.Add(this.guna2ContainerControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormReservasi";
             this.Text = "FormReservasi";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).EndInit();
-            this.groupAction.ResumeLayout(false);
-            this.groupBoxForm.ResumeLayout(false);
-            this.groupBoxForm.PerformLayout();
-            this.groupBoxFilter.ResumeLayout(false);
-            this.groupBoxFilter.PerformLayout();
+            this.guna2ContainerControl1.ResumeLayout(false);
+            this.guna2ContainerControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelNama;
-        private System.Windows.Forms.Label labelTanggal;
-        private System.Windows.Forms.TextBox txtNamaTamu;
-        private System.Windows.Forms.DateTimePicker dateCheckIn;
-        private System.Windows.Forms.TextBox txtJumlahTamu;
-        private System.Windows.Forms.RadioButton radioStandart;
-        private System.Windows.Forms.Label labelJumlah;
-        private System.Windows.Forms.Label labelTipe;
-        private System.Windows.Forms.RadioButton radioSuperior;
-        private System.Windows.Forms.RadioButton radioSuite;
         private System.Windows.Forms.DataGridView dataGridReservasi;
-        private System.Windows.Forms.GroupBox groupAction;
-        private System.Windows.Forms.Button buttonHapus;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonSimpan;
-        private System.Windows.Forms.Button buttonPrint;
-        private System.Windows.Forms.GroupBox groupBoxForm;
-        private System.Windows.Forms.Button buttonClear;
-        private System.Windows.Forms.Button buttonPrev;
-        private System.Windows.Forms.Button buttonNext;
-        private System.Windows.Forms.ComboBox comboFilter;
-        private System.Windows.Forms.GroupBox groupBoxFilter;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label labelHalaman;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2TextBox txtNamaTamu;
+        private Guna.UI2.WinForms.Guna2TextBox txtJumlahTamu;
+        private Guna.UI2.WinForms.Guna2DateTimePicker datePemesanan;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl1;
+        private Guna.UI2.WinForms.Guna2RadioButton radioSuite;
+        private Guna.UI2.WinForms.Guna2RadioButton radioStandart;
+        private Guna.UI2.WinForms.Guna2RadioButton radioSuperior;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBoxIcon;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Button buttonPrev;
+        private Guna.UI2.WinForms.Guna2Button buttonNext;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateCheckIn;
+        private Guna.UI2.WinForms.Guna2Button buttonEdit;
+        private Guna.UI2.WinForms.Guna2Button buttonHapus;
+        private Guna.UI2.WinForms.Guna2Button buttonClear;
+        private Guna.UI2.WinForms.Guna2Button buttonPrint;
+        private Guna.UI2.WinForms.Guna2Button buttonSimpan;
     }
 }
