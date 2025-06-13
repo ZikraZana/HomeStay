@@ -44,18 +44,18 @@
             this.ColumnJumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupAction = new System.Windows.Forms.GroupBox();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonHapus = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonSimpan = new System.Windows.Forms.Button();
             this.groupBoxForm = new System.Windows.Forms.GroupBox();
-            this.buttonPrint = new System.Windows.Forms.Button();
-            this.buttonClear = new System.Windows.Forms.Button();
             this.buttonPrev = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();
             this.comboFilter = new System.Windows.Forms.ComboBox();
             this.groupBoxFilter = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.labelHalaman = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).BeginInit();
             this.groupAction.SuspendLayout();
@@ -231,6 +231,29 @@
             this.groupAction.TabStop = false;
             this.groupAction.Text = "Action";
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.Location = new System.Drawing.Point(391, 42);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(96, 35);
+            this.buttonClear.TabIndex = 18;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.Location = new System.Drawing.Point(289, 42);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(96, 35);
+            this.buttonPrint.TabIndex = 17;
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            // 
             // buttonHapus
             // 
             this.buttonHapus.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -286,28 +309,6 @@
             this.groupBoxForm.TabStop = false;
             this.groupBoxForm.Text = "Reservasi";
             // 
-            // buttonPrint
-            // 
-            this.buttonPrint.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrint.Location = new System.Drawing.Point(289, 42);
-            this.buttonPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(96, 35);
-            this.buttonPrint.TabIndex = 17;
-            this.buttonPrint.Text = "Print";
-            this.buttonPrint.UseVisualStyleBackColor = true;
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.Location = new System.Drawing.Point(391, 42);
-            this.buttonClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(96, 35);
-            this.buttonClear.TabIndex = 18;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            // 
             // buttonPrev
             // 
             this.buttonPrev.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -353,13 +354,6 @@
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Filter";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(225, 40);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(211, 26);
-            this.txtSearch.TabIndex = 17;
-            // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -369,6 +363,13 @@
             this.btnSearch.TabIndex = 18;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(225, 40);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(211, 26);
+            this.txtSearch.TabIndex = 17;
             // 
             // labelHalaman
             // 

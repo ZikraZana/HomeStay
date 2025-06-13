@@ -184,9 +184,34 @@ namespace HomeStay
 
         private void buttonHapus_Click(object sender, EventArgs e)
         {
+            if (selectedId == -1) return;
 
+            DialogResult result = MessageBox.Show("Yakin ingin menghapus data pemesanan ini?", "Konfirmasi", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) return;
+
+            using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "DELETE FROM pemesanan WHERE id=@id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", selectedId);
+                    cmd.ExecuteNonQuery();
+                    LoadData();
+                    ClearForm();
+                    MessageBox.Show("Data pemesanan berhasil dihapus.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal hapus: " + ex.Message);
+                }
+            }
         }
 
-        
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
     }
 }
