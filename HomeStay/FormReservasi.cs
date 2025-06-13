@@ -135,7 +135,7 @@ namespace HomeStay
                     cmd.Parameters.AddWithValue("@id_resepsionis", Session.id_resepsionis);
                     cmd.Parameters.AddWithValue("@id_pemesanan", selectedId);
                     cmd.ExecuteNonQuery();
-                    LoadData();
+                    TampilkanDataDefault();
                     ClearForm();
                     MessageBox.Show("Data pemesanan berhasil diperbarui!");
                 }
@@ -178,7 +178,7 @@ namespace HomeStay
                    
 
                     cmd.ExecuteNonQuery();
-                    LoadData();
+                    TampilkanDataDefault();
                     ClearForm();
                     MessageBox.Show("Data pemesanan berhasil disimpan!");
                 }
@@ -217,7 +217,7 @@ namespace HomeStay
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id_pemesanan", selectedId);
                     cmd.ExecuteNonQuery();
-                    LoadData();
+                    TampilkanDataDefault();
                     ClearForm();
                     MessageBox.Show("Data pemesanan berhasil dihapus.");
                 }
@@ -251,12 +251,12 @@ namespace HomeStay
                 txtJumlahTamu.Text = dataGridReservasi.Rows[e.RowIndex].Cells["jumlah_tamu"].Value?.ToString() ?? "";
                 datePemesanan.Text = dataGridReservasi.Rows[e.RowIndex].Cells["tanggal_pemesanan"].Value?.ToString();
                 dateCheckIn.Text = dataGridReservasi.Rows[e.RowIndex].Cells["tanggal_check_in"].Value?.ToString();
+                int idKamar = Convert.ToInt32(dataGridReservasi.Rows[e.RowIndex].Cells["id_kamar"].Value);
+                radioStandart.Checked = (idKamar == 1);
+                radioSuperior.Checked = (idKamar == 2);
+                radioSuite.Checked = (idKamar == 3);
 
-                string idKamarFromGrid = dataGridReservasi.Rows[e.RowIndex].Cells["id_kamar"].Value?.ToString()?.Trim();
 
-                radioStandart.Checked = (idKamarFromGrid == "1");
-                radioSuperior.Checked = (idKamarFromGrid == "2");
-                radioSuite.Checked = (idKamarFromGrid == "3");
 
                 buttonSimpan.Enabled = false;
 
@@ -317,7 +317,21 @@ namespace HomeStay
                 }
                 int offset = (currentPage - 1) * pageSize;
 
-                string query = $"SELECT * FROM pemesanan WHERE {kolomDb} LIKE @keyword ORDER BY id_pemesanan DESC LIMIT @limit OFFSET @offset";
+                string query = @"
+                        SELECT 
+                            p.id_pemesanan,
+                            p.nama_tamu,
+                            p.tanggal_pemesanan,
+                            p.tanggal_check_in,
+                            p.jumlah_tamu,
+                            k.tipe_kamar,
+                            p.id_kamar,
+                            p.no_pemesanan,
+                            p.id_resepsionis
+                        FROM pemesanan p
+                        JOIN kamar k ON p.id_kamar = k.id_kamar
+                        ORDER BY p.id_pemesanan DESC
+                        LIMIT @limit OFFSET @offset";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
@@ -327,6 +341,16 @@ namespace HomeStay
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridReservasi.DataSource = dt;
+
+                dataGridReservasi.Columns["id_pemesanan"].Visible = false;
+                dataGridReservasi.Columns["nama_tamu"].HeaderText = "Nama Tamu";
+                dataGridReservasi.Columns["tanggal_pemesanan"].HeaderText = "Tanggal Pemesanan";
+                dataGridReservasi.Columns["tanggal_check_in"].HeaderText = "Tanggal Check-In";
+                dataGridReservasi.Columns["jumlah_tamu"].HeaderText = "Jumlah Orang";
+                dataGridReservasi.Columns["tipe_kamar"].HeaderText = "Tipe Kamar";
+                dataGridReservasi.Columns["no_pemesanan"].HeaderText = "No. Pemesanan";
+                dataGridReservasi.Columns["id_resepsionis"].Visible = false;
+                dataGridReservasi.Columns["id_kamar"].Visible = false;
 
                 labelPageInfo.Text = $"Halaman {currentPage} dari {totalPages}";
             }
@@ -363,6 +387,7 @@ namespace HomeStay
                             p.tanggal_check_in,
                             p.jumlah_tamu,
                             k.tipe_kamar,
+                            p.id_kamar,
                             p.no_pemesanan,
                             p.id_resepsionis
                         FROM pemesanan p
@@ -378,6 +403,16 @@ namespace HomeStay
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridReservasi.DataSource = dt;
+
+                dataGridReservasi.Columns["id_pemesanan"].Visible = false;
+                dataGridReservasi.Columns["nama_tamu"].HeaderText = "Nama Tamu";
+                dataGridReservasi.Columns["tanggal_pemesanan"].HeaderText = "Tanggal Pemesanan";
+                dataGridReservasi.Columns["tanggal_check_in"].HeaderText = "Tanggal Check-In";
+                dataGridReservasi.Columns["jumlah_tamu"].HeaderText = "Jumlah Orang";
+                dataGridReservasi.Columns["tipe_kamar"].HeaderText = "Tipe Kamar";
+                dataGridReservasi.Columns["no_pemesanan"].HeaderText = "No. Pemesanan";
+                dataGridReservasi.Columns["id_resepsionis"].Visible = false;
+                dataGridReservasi.Columns["id_kamar"].Visible = false;
 
                 labelPageInfo.Text = $"Halaman {currentPage} dari {totalPages}";
             }
