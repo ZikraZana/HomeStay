@@ -38,6 +38,7 @@
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.SuspendLayout();
@@ -47,9 +48,9 @@
             this.labelLogin.AutoSize = true;
             this.labelLogin.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLogin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelLogin.Location = new System.Drawing.Point(521, 165);
+            this.labelLogin.Location = new System.Drawing.Point(463, 132);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(315, 27);
+            this.labelLogin.Size = new System.Drawing.Size(272, 23);
             this.labelLogin.TabIndex = 0;
             this.labelLogin.Text = "Selamat Datang Kembali!";
             this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
@@ -59,10 +60,10 @@
             this.btnLogin.BackColor = System.Drawing.Color.Chocolate;
             this.btnLogin.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLogin.Location = new System.Drawing.Point(585, 394);
+            this.btnLogin.Location = new System.Drawing.Point(520, 315);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(167, 32);
+            this.btnLogin.Size = new System.Drawing.Size(148, 26);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -72,18 +73,16 @@
             // 
             this.textBoxUsername.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsername.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBoxUsername.Location = new System.Drawing.Point(560, 269);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxUsername.Location = new System.Drawing.Point(498, 215);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(218, 26);
+            this.textBoxUsername.Size = new System.Drawing.Size(194, 23);
             this.textBoxUsername.TabIndex = 4;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(560, 322);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxPassword.Location = new System.Drawing.Point(498, 258);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(218, 26);
+            this.textBoxPassword.Size = new System.Drawing.Size(194, 22);
             this.textBoxPassword.TabIndex = 5;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
@@ -91,9 +90,9 @@
             // 
             this.labelLogin2.AutoSize = true;
             this.labelLogin2.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogin2.Location = new System.Drawing.Point(505, 201);
+            this.labelLogin2.Location = new System.Drawing.Point(449, 161);
             this.labelLogin2.Name = "labelLogin2";
-            this.labelLogin2.Size = new System.Drawing.Size(357, 18);
+            this.labelLogin2.Size = new System.Drawing.Size(309, 16);
             this.labelLogin2.TabIndex = 7;
             this.labelLogin2.Text = "Homestay siap melayani dengan sepenuh hati";
             // 
@@ -102,9 +101,10 @@
             this.checkBoxPassword.AutoSize = true;
             this.checkBoxPassword.Font = new System.Drawing.Font("Lucida Sans", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBoxPassword.Location = new System.Drawing.Point(685, 355);
+            this.checkBoxPassword.Location = new System.Drawing.Point(609, 284);
+            this.checkBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxPassword.Name = "checkBoxPassword";
-            this.checkBoxPassword.Size = new System.Drawing.Size(134, 21);
+            this.checkBoxPassword.Size = new System.Drawing.Size(108, 17);
             this.checkBoxPassword.TabIndex = 8;
             this.checkBoxPassword.Text = "Tampilkan Password";
             this.checkBoxPassword.UseVisualStyleBackColor = true;
@@ -112,18 +112,20 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HomeStay.Properties.Resources.FitzgeraldsMotel;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -67);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -54);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(395, 607);
+            this.pictureBox1.Size = new System.Drawing.Size(351, 486);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBoxIcon
             // 
             this.pictureBoxIcon.Image = global::HomeStay.Properties.Resources.building;
-            this.pictureBoxIcon.Location = new System.Drawing.Point(625, 47);
+            this.pictureBoxIcon.Location = new System.Drawing.Point(556, 38);
+            this.pictureBoxIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxIcon.Name = "pictureBoxIcon";
-            this.pictureBoxIcon.Size = new System.Drawing.Size(100, 99);
+            this.pictureBoxIcon.Size = new System.Drawing.Size(89, 79);
             this.pictureBoxIcon.TabIndex = 9;
             this.pictureBoxIcon.TabStop = false;
             // 
@@ -131,9 +133,9 @@
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Lucida Sans", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(557, 250);
+            this.labelUsername.Location = new System.Drawing.Point(495, 200);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(64, 15);
+            this.labelUsername.Size = new System.Drawing.Size(56, 14);
             this.labelUsername.TabIndex = 10;
             this.labelUsername.Text = "Username";
             // 
@@ -141,18 +143,28 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Lucida Sans", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(558, 303);
+            this.labelPassword.Location = new System.Drawing.Point(496, 242);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(63, 15);
+            this.labelPassword.Size = new System.Drawing.Size(53, 14);
             this.labelPassword.TabIndex = 11;
             this.labelPassword.Text = "Password";
             // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(389, 12);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(108, 18);
+            this.guna2HtmlLabel1.TabIndex = 12;
+            this.guna2HtmlLabel1.Text = "guna2HtmlLabel1";
+            // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(940, 538);
+            this.ClientSize = new System.Drawing.Size(836, 430);
+            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.pictureBoxIcon);
@@ -186,6 +198,7 @@
         private System.Windows.Forms.PictureBox pictureBoxIcon;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label labelPassword;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
 
