@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.labelLogin = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.textBoxUsername = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelLogin2 = new System.Windows.Forms.Label();
             this.checkBoxPassword = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.textBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.textBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.SuspendLayout();
@@ -46,68 +45,38 @@
             // labelLogin
             // 
             this.labelLogin.AutoSize = true;
-            this.labelLogin.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLogin.Font = new System.Drawing.Font("Lucida Sans", 20F, System.Drawing.FontStyle.Bold);
             this.labelLogin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelLogin.Location = new System.Drawing.Point(463, 132);
+            this.labelLogin.Location = new System.Drawing.Point(575, 174);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(272, 23);
+            this.labelLogin.Size = new System.Drawing.Size(460, 39);
             this.labelLogin.TabIndex = 0;
             this.labelLogin.Text = "Selamat Datang Kembali!";
             this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
             // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.Chocolate;
-            this.btnLogin.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLogin.Location = new System.Drawing.Point(520, 315);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(148, 26);
-            this.btnLogin.TabIndex = 3;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // textBoxUsername
-            // 
-            this.textBoxUsername.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUsername.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBoxUsername.Location = new System.Drawing.Point(498, 215);
-            this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(194, 23);
-            this.textBoxUsername.TabIndex = 4;
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Location = new System.Drawing.Point(498, 258);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(194, 22);
-            this.textBoxPassword.TabIndex = 5;
-            this.textBoxPassword.UseSystemPasswordChar = true;
-            // 
             // labelLogin2
             // 
             this.labelLogin2.AutoSize = true;
-            this.labelLogin2.Font = new System.Drawing.Font("Lucida Sans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogin2.Location = new System.Drawing.Point(449, 161);
+            this.labelLogin2.Font = new System.Drawing.Font("Lucida Sans", 12F);
+            this.labelLogin2.Location = new System.Drawing.Point(574, 213);
             this.labelLogin2.Name = "labelLogin2";
-            this.labelLogin2.Size = new System.Drawing.Size(309, 16);
+            this.labelLogin2.Size = new System.Drawing.Size(464, 23);
             this.labelLogin2.TabIndex = 7;
             this.labelLogin2.Text = "Homestay siap melayani dengan sepenuh hati";
             // 
             // checkBoxPassword
             // 
             this.checkBoxPassword.AutoSize = true;
-            this.checkBoxPassword.Font = new System.Drawing.Font("Lucida Sans", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxPassword.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.checkBoxPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.checkBoxPassword.Location = new System.Drawing.Point(609, 284);
+            this.checkBoxPassword.Location = new System.Drawing.Point(827, 412);
             this.checkBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxPassword.Name = "checkBoxPassword";
-            this.checkBoxPassword.Size = new System.Drawing.Size(108, 17);
+            this.checkBoxPassword.Size = new System.Drawing.Size(186, 24);
             this.checkBoxPassword.TabIndex = 8;
             this.checkBoxPassword.Text = "Tampilkan Password";
-            this.checkBoxPassword.UseVisualStyleBackColor = true;
+            this.checkBoxPassword.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -115,65 +84,116 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, -54);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(351, 486);
+            this.pictureBox1.Size = new System.Drawing.Size(457, 638);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBoxIcon
             // 
             this.pictureBoxIcon.Image = global::HomeStay.Properties.Resources.building;
-            this.pictureBoxIcon.Location = new System.Drawing.Point(556, 38);
+            this.pictureBoxIcon.Location = new System.Drawing.Point(771, 48);
             this.pictureBoxIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxIcon.Name = "pictureBoxIcon";
-            this.pictureBoxIcon.Size = new System.Drawing.Size(89, 79);
+            this.pictureBoxIcon.Size = new System.Drawing.Size(96, 96);
+            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxIcon.TabIndex = 9;
             this.pictureBoxIcon.TabStop = false;
             // 
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Font = new System.Drawing.Font("Lucida Sans", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(495, 200);
+            this.labelUsername.BackColor = System.Drawing.Color.PeachPuff;
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelUsername.Location = new System.Drawing.Point(612, 257);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(56, 14);
+            this.labelUsername.Size = new System.Drawing.Size(97, 24);
             this.labelUsername.TabIndex = 10;
             this.labelUsername.Text = "Username";
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Lucida Sans", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(496, 242);
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelPassword.Location = new System.Drawing.Point(612, 336);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(53, 14);
+            this.labelPassword.Size = new System.Drawing.Size(92, 24);
             this.labelPassword.TabIndex = 11;
             this.labelPassword.Text = "Password";
             // 
-            // guna2HtmlLabel1
+            // textBoxUsername
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(389, 12);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(108, 18);
-            this.guna2HtmlLabel1.TabIndex = 12;
-            this.guna2HtmlLabel1.Text = "guna2HtmlLabel1";
+            this.textBoxUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxUsername.DefaultText = "";
+            this.textBoxUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textBoxUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textBoxUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBoxUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBoxUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBoxUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textBoxUsername.Location = new System.Drawing.Point(616, 293);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.PlaceholderText = "";
+            this.textBoxUsername.SelectedText = "";
+            this.textBoxUsername.Size = new System.Drawing.Size(397, 37);
+            this.textBoxUsername.TabIndex = 12;
+            this.textBoxUsername.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxPassword.DefaultText = "";
+            this.textBoxPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.textBoxPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.textBoxPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBoxPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.textBoxPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBoxPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.textBoxPassword.Location = new System.Drawing.Point(616, 367);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.textBoxPassword.PlaceholderText = "";
+            this.textBoxPassword.SelectedText = "";
+            this.textBoxPassword.Size = new System.Drawing.Size(397, 37);
+            this.textBoxPassword.TabIndex = 13;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BorderColor = System.Drawing.Color.White;
+            this.btnLogin.BorderRadius = 5;
+            this.btnLogin.BorderThickness = 1;
+            this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogin.FillColor = System.Drawing.Color.Chocolate;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(724, 471);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(180, 45);
+            this.btnLogin.TabIndex = 14;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(836, 430);
-            this.Controls.Add(this.guna2HtmlLabel1);
+            this.ClientSize = new System.Drawing.Size(1141, 582);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.pictureBoxIcon);
             this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.labelLogin2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.textBoxUsername);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.labelLogin);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormLogin";
@@ -189,16 +209,15 @@
         #endregion
 
         private System.Windows.Forms.Label labelLogin;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox textBoxUsername;
-        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelLogin2;
         private System.Windows.Forms.CheckBox checkBoxPassword;
         private System.Windows.Forms.PictureBox pictureBoxIcon;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label labelPassword;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxUsername;
+        private Guna.UI2.WinForms.Guna2TextBox textBoxPassword;
+        private Guna.UI2.WinForms.Guna2Button btnLogin;
     }
 }
 
