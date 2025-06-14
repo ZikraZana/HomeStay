@@ -144,7 +144,7 @@
             this.datePemesanan.BorderThickness = 1;
             this.datePemesanan.Checked = true;
             this.datePemesanan.FillColor = System.Drawing.Color.White;
-            this.datePemesanan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.datePemesanan.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePemesanan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.datePemesanan.Location = new System.Drawing.Point(39, 682);
             this.datePemesanan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -152,7 +152,7 @@
             this.datePemesanan.Name = "datePemesanan";
             this.datePemesanan.Size = new System.Drawing.Size(236, 37);
             this.datePemesanan.TabIndex = 25;
-            this.datePemesanan.Value = new System.DateTime(2025, 6, 13, 20, 35, 0, 130);
+            this.datePemesanan.Value = new System.DateTime(2025, 6, 15, 0, 0, 0, 0);
             // 
             // guna2ContainerControl1
             // 
@@ -349,7 +349,7 @@
             this.dateCheckIn.BorderThickness = 1;
             this.dateCheckIn.Checked = true;
             this.dateCheckIn.FillColor = System.Drawing.Color.White;
-            this.dateCheckIn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dateCheckIn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateCheckIn.Location = new System.Drawing.Point(308, 682);
             this.dateCheckIn.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -357,7 +357,7 @@
             this.dateCheckIn.Name = "dateCheckIn";
             this.dateCheckIn.Size = new System.Drawing.Size(215, 37);
             this.dateCheckIn.TabIndex = 40;
-            this.dateCheckIn.Value = new System.DateTime(2025, 6, 13, 20, 35, 0, 130);
+            this.dateCheckIn.Value = new System.DateTime(2025, 6, 15, 0, 0, 0, 0);
             // 
             // buttonEdit
             // 
@@ -492,11 +492,12 @@
             this.comboBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.Items.AddRange(new object[] {
-            "Tipe Kamar",
+            "Nomor Pemesanan",
             "Nama Tamu",
+            "Tipe Kamar",
+            "Jumlah Tamu",
             "Tanggal Pemesanan",
-            "Tanggal Check-in",
-            "Jumlah Tamu"});
+            "Tanggal Check-in"});
             this.comboBoxFilter.Location = new System.Drawing.Point(39, 770);
             this.comboBoxFilter.Name = "comboBoxFilter";
             this.comboBoxFilter.Size = new System.Drawing.Size(123, 28);

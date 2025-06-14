@@ -80,6 +80,8 @@ namespace HomeStay
         {
             currentPage = 1;
             isFiltered = false;
+            datePemesanan.Value = DateTime.Now;
+            dateCheckIn.Value = DateTime.Now;
             TampilkanDataDefault();
         }
 
@@ -97,8 +99,32 @@ namespace HomeStay
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO pemesanan (nama_tamu, tanggal_pemesanan, tanggal_check_in, jumlah_tamu, id_kamar, id_resepsionis) " + "VALUES (@nama_tamu, @tanggal_pemesanan, @tanggal_check_in, @jumlah_tamu, @id_kamar, @id_resepsionis)";
+
+                    // STEP 1: Ambil nomor pemesanan terakhir
+                    string getLastQuery = "SELECT MAX(no_pemesanan) FROM pemesanan";
+                    MySqlCommand getLastCmd = new MySqlCommand(getLastQuery, conn);
+                    object result = getLastCmd.ExecuteScalar();
+
+                    int nextNumber = 1;
+
+                    if (result != DBNull.Value && result != null)
+                    {
+                        string lastNo = result.ToString(); // e.g., "PM-007"
+                        if (lastNo.StartsWith("PM-"))
+                        {
+                            string numberPart = lastNo.Substring(3);
+                            if (int.TryParse(numberPart, out int lastNumber))
+                            {
+                                nextNumber = lastNumber + 1;
+                            }
+                        }
+                    }
+
+                    string newNoPemesanan = "PM-" + nextNumber.ToString("D3");
+
+                    string query = "INSERT INTO pemesanan (no_pemesanan, nama_tamu, tanggal_pemesanan, tanggal_check_in, jumlah_tamu, id_kamar, id_resepsionis) " + "VALUES (@no_pemesanan, @nama_tamu, @tanggal_pemesanan, @tanggal_check_in, @jumlah_tamu, @id_kamar, @id_resepsionis)";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@no_pemesanan", newNoPemesanan);
                     cmd.Parameters.AddWithValue("@nama_tamu", txtNamaTamu.Text);
                     cmd.Parameters.AddWithValue("@tanggal_pemesanan", datePemesanan.Value);
                     cmd.Parameters.AddWithValue("@tanggal_check_in", dateCheckIn.Value);
@@ -226,6 +252,7 @@ namespace HomeStay
 
         private void buttonCari_Click(object sender, EventArgs e)
         {
+            validasiFilter();
             currentPage = 1;
             isFiltered = true;
             TampilkanDataFiltered();
@@ -312,12 +339,15 @@ namespace HomeStay
         {
             txtNamaTamu.Clear();
             datePemesanan.Value = DateTime.Now;
+            dateCheckIn.Value = DateTime.Now;
             txtJumlahTamu.Clear();
             radioStandart.Checked = false;
             radioSuperior.Checked = false;
             radioSuite.Checked = false;
             selectedId = -1;
             buttonSimpan.Enabled = true;
+            comboBoxFilter.Text = "";
+            txtCari.Clear();
         }
 
         private bool validasi()
@@ -337,21 +367,44 @@ namespace HomeStay
                 MessageBox.Show("Pilih tipe kamar terlebih dahulu.");
                 return false;
             }
-            if (dateCheckIn.Value < DateTime.Now)
-            {
-                MessageBox.Show("Tanggal Check-In tidak boleh sebelum hari ini.");
-                return false;
-            }
-            if (dateCheckIn.Value < datePemesanan.Value)
-            {
-                MessageBox.Show("Tanggal Check-In tidak boleh sebelum Tanggal Pemesanan.");
-                return false;
-            }
-            if (datePemesanan.Value < DateTime.Now)
+            
+            DateTime tanggalHariIni = DateTime.Now.Date;
+            DateTime tglPemesanan = datePemesanan.Value.Date;
+            DateTime tglCheckIn = dateCheckIn.Value.Date;
+
+            if (tglPemesanan < tanggalHariIni)
             {
                 MessageBox.Show("Tanggal Pemesanan tidak boleh sebelum hari ini.");
                 return false;
             }
+
+            if (tglCheckIn < tanggalHariIni)
+            {
+                MessageBox.Show("Tanggal Check-In tidak boleh sebelum hari ini.");
+                return false;
+            }
+
+            if (tglCheckIn < tglPemesanan)
+            {
+                MessageBox.Show("Tanggal Check-In tidak boleh sebelum Tanggal Pemesanan.");
+                return false;
+            }
+            return true;
+        }
+
+        private bool validasiFilter()
+        {
+            if (comboBoxFilter.SelectedItem == null)
+            {
+                MessageBox.Show("Pilih kolom yang ingin difilter.");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtCari.Text))
+            {
+                MessageBox.Show("Masukkan keyword untuk pencarian.");
+                return false;
+            }
+
             return true;
         }
 
@@ -376,6 +429,10 @@ namespace HomeStay
             else if (kolom == "Tipe Kamar")
             {
                 kolomDb = "tipe_kamar";
+            }
+            else if (kolom == "Nomor Pemesanan")
+            {
+                kolomDb = "no_pemesanan";
             }
 
             using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
