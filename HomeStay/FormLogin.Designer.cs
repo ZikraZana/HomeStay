@@ -52,7 +52,6 @@
             this.labelLogin.Size = new System.Drawing.Size(460, 39);
             this.labelLogin.TabIndex = 0;
             this.labelLogin.Text = "Selamat Datang Kembali!";
-            this.labelLogin.Click += new System.EventHandler(this.labelLogin_Click);
             // 
             // labelLogin2
             // 
@@ -77,6 +76,7 @@
             this.checkBoxPassword.TabIndex = 8;
             this.checkBoxPassword.Text = "Tampilkan Password";
             this.checkBoxPassword.UseVisualStyleBackColor = false;
+            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBoxPassword_CheckedChanged);
             // 
             // pictureBox1
             // 
@@ -122,6 +122,7 @@
             // 
             // textBoxUsername
             // 
+            this.textBoxUsername.BorderColor = System.Drawing.Color.DimGray;
             this.textBoxUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxUsername.DefaultText = "";
             this.textBoxUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -138,10 +139,10 @@
             this.textBoxUsername.SelectedText = "";
             this.textBoxUsername.Size = new System.Drawing.Size(397, 37);
             this.textBoxUsername.TabIndex = 12;
-            this.textBoxUsername.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.BorderColor = System.Drawing.Color.DimGray;
             this.textBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxPassword.DefaultText = "";
             this.textBoxPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -163,7 +164,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BorderColor = System.Drawing.Color.White;
+            this.btnLogin.BorderColor = System.Drawing.Color.DimGray;
             this.btnLogin.BorderRadius = 5;
             this.btnLogin.BorderThickness = 1;
             this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -199,7 +200,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
-            this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();
             this.ResumeLayout(false);

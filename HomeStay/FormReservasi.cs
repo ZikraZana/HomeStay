@@ -22,71 +22,115 @@ namespace HomeStay
         int totalRecords = 0; // Total data di database
 
         bool isFiltered = false; // Menandakan apakah data sedang difilter
-        private void LoadData()
-        {
-            DataTable dt = new DataTable();
-            using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = @"
-                            SELECT 
-                                p.id_pemesanan,
-                                p.nama_tamu,
-                                p.tanggal_pemesanan,
-                                p.tanggal_check_in,
-                                p.jumlah_tamu,
-                                k.tipe_kamar,
-                                p.no_pemesanan,
-                                p.id_resepsionis
-                            FROM pemesanan p
-                            JOIN kamar k ON p.id_kamar = k.id_kamar
-                        ";
+        //private void LoadData()
+        //{
+        //    DataTable dt = new DataTable();
+        //    using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //            string query = @"
+        //                    SELECT 
+        //                        p.id_pemesanan,
+        //                        p.nama_tamu,
+        //                        p.tanggal_pemesanan,
+        //                        p.tanggal_check_in,
+        //                        p.jumlah_tamu,
+        //                        k.tipe_kamar,
+        //                        p.no_pemesanan,
+        //                        p.id_resepsionis
+        //                    FROM pemesanan p
+        //                    JOIN kamar k ON p.id_kamar = k.id_kamar
+        //                ";
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+        //            MySqlCommand cmd = new MySqlCommand(query, conn);
+        //            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
-                    adapter.Fill(dt);
-                    dataGridReservasi.DataSource = dt;
+        //            adapter.Fill(dt);
+        //            dataGridReservasi.DataSource = dt;
 
-                    dataGridReservasi.Columns["id_pemesanan"].HeaderText = "id_pemesanan";
-                    dataGridReservasi.Columns["id_pemesanan"].Visible = false;
+        //            dataGridReservasi.Columns["id_pemesanan"].HeaderText = "id_pemesanan";
+        //            dataGridReservasi.Columns["id_pemesanan"].Visible = false;
 
-                    dataGridReservasi.Columns["nama_tamu"].HeaderText = "Nama Tamu";
-                    dataGridReservasi.Columns["tanggal_pemesanan"].HeaderText = "Tanggal Pemesanan";
-                    dataGridReservasi.Columns["tanggal_check_in"].HeaderText = "Tanggal Check-In";
-                    dataGridReservasi.Columns["jumlah_tamu"].HeaderText = "Jumlah Orang";
-                    dataGridReservasi.Columns["tipe_kamar"].HeaderText = "Tipe Kamar";
-                    dataGridReservasi.Columns["no_pemesanan"].HeaderText = "No. Pemesanan";
-                    dataGridReservasi.Columns["id_resepsionis"].Visible = false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error load data: " + ex.Message);
-                }
-            }
-        }
+        //            dataGridReservasi.Columns["nama_tamu"].HeaderText = "Nama Tamu";
+        //            dataGridReservasi.Columns["tanggal_pemesanan"].HeaderText = "Tanggal Pemesanan";
+        //            dataGridReservasi.Columns["tanggal_check_in"].HeaderText = "Tanggal Check-In";
+        //            dataGridReservasi.Columns["jumlah_tamu"].HeaderText = "Jumlah Orang";
+        //            dataGridReservasi.Columns["tipe_kamar"].HeaderText = "Tipe Kamar";
+        //            dataGridReservasi.Columns["no_pemesanan"].HeaderText = "No. Pemesanan";
+        //            dataGridReservasi.Columns["id_resepsionis"].Visible = false;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Error load data: " + ex.Message);
+        //        }
+        //    }
+        //}
 
 
         public FormReservasi()
         {
             
             InitializeComponent();
-            LoadData();
 
         }
 
-        private void ClearForm()
+        private void FormReservasi_Load(object sender, EventArgs e)
         {
-            txtNamaTamu.Clear();
-            datePemesanan.Value = DateTime.Now;
-            txtJumlahTamu.Clear();
-            radioStandart.Checked = false;
-            radioSuperior.Checked = false;
-            radioSuite.Checked = false;
-            selectedId = -1;
-            buttonSimpan.Enabled = true;
+            currentPage = 1;
+            isFiltered = false;
+            TampilkanDataDefault();
+        }
+
+        /* ============================================================== Button & Click Area ============================================================== */
+        private void buttonSimpan_Click(object sender, EventArgs e)
+        {
+
+            if (!validasi())
+            {
+                return;
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "INSERT INTO pemesanan (nama_tamu, tanggal_pemesanan, tanggal_check_in, jumlah_tamu, id_kamar, id_resepsionis) " + "VALUES (@nama_tamu, @tanggal_pemesanan, @tanggal_check_in, @jumlah_tamu, @id_kamar, @id_resepsionis)";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@nama_tamu", txtNamaTamu.Text);
+                    cmd.Parameters.AddWithValue("@tanggal_pemesanan", datePemesanan.Value);
+                    cmd.Parameters.AddWithValue("@tanggal_check_in", dateCheckIn.Value);
+                    cmd.Parameters.AddWithValue("@jumlah_tamu", txtJumlahTamu.Text);
+                    string idKamar = "";
+
+                    if (radioStandart.Checked)
+                    {
+                        idKamar = "1"; // ID kamar untuk Standart Room
+                    }
+                    else if (radioSuperior.Checked)
+                    {
+                        idKamar = "2"; // ID untuk Superior Room
+                    }
+                    else if (radioSuite.Checked)
+                    {
+                        idKamar = "3"; // ID untuk Suite Room
+                    }
+                    cmd.Parameters.AddWithValue("@id_kamar", idKamar);
+                    cmd.Parameters.AddWithValue("@id_resepsionis", Session.id_resepsionis);
+                   
+
+                    cmd.ExecuteNonQuery();
+                    TampilkanDataDefault();
+                    ClearForm();
+                    MessageBox.Show("Data pemesanan berhasil disimpan!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal simpan: " + ex.Message);
+                }
+            }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -94,6 +138,11 @@ namespace HomeStay
             if (selectedId == -1)
             {
                 MessageBox.Show("Pilih data yang ingin diedit terlebih dahulu.");
+                return;
+            }
+
+            if (!validasi())
+            {
                 return;
             }
 
@@ -136,54 +185,6 @@ namespace HomeStay
             }
         }
 
-        private void buttonSimpan_Click(object sender, EventArgs e)
-        {
-            using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "INSERT INTO pemesanan (nama_tamu, tanggal_pemesanan, tanggal_check_in, jumlah_tamu, id_kamar, id_resepsionis) " + "VALUES (@nama_tamu, @tanggal_pemesanan, @tanggal_check_in, @jumlah_tamu, @id_kamar, @id_resepsionis)";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@nama_tamu", txtNamaTamu.Text);
-                    cmd.Parameters.AddWithValue("@tanggal_pemesanan", datePemesanan.Value);
-                    cmd.Parameters.AddWithValue("@tanggal_check_in", dateCheckIn.Value);
-                    cmd.Parameters.AddWithValue("@jumlah_tamu", txtJumlahTamu.Text);
-                    string idKamar = "";
-
-                    if (radioStandart.Checked)
-                    {
-                        idKamar = "1"; // ID kamar untuk Standart Room
-                    }
-                    else if (radioSuperior.Checked)
-                    {
-                        idKamar = "2"; // ID untuk Superior Room
-                    }
-                    else if (radioSuite.Checked)
-                    {
-                        idKamar = "3"; // ID untuk Suite Room
-                    }
-                    cmd.Parameters.AddWithValue("@id_kamar", idKamar);
-                    cmd.Parameters.AddWithValue("@id_resepsionis", Session.id_resepsionis);
-                   
-
-                    cmd.ExecuteNonQuery();
-                    TampilkanDataDefault();
-                    ClearForm();
-                    MessageBox.Show("Data pemesanan berhasil disimpan!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal simpan: " + ex.Message);
-                }
-            }
-        }
-
-        private void txtNamaTamu_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonHapus_Click(object sender, EventArgs e)
         {
             if (selectedId == -1)
@@ -223,9 +224,56 @@ namespace HomeStay
             ClearForm();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void buttonCari_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            isFiltered = true;
+            TampilkanDataFiltered();
+        }
+
+        private void buttonPrev_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                if (isFiltered)
+                {
+                    TampilkanDataFiltered();
+                }
+                else
+                {
+                    TampilkanDataDefault();
+                }
+            }
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                if (isFiltered)
+                {
+                    TampilkanDataFiltered();
+                }
+                else
+                {
+                    TampilkanDataDefault();
+                }
+            }
+        }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+            currentPage = 1;
+            isFiltered = false;
+            TampilkanDataDefault();
         }
 
         private void dataGridReservasi_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -255,11 +303,56 @@ namespace HomeStay
             }
         }
 
-        private void buttonCari_Click(object sender, EventArgs e)
+
+
+
+
+        /* ============================================================== Others ============================================================== */
+        private void ClearForm()
         {
-            currentPage = 1;
-            isFiltered = true;
-            TampilkanDataFiltered();
+            txtNamaTamu.Clear();
+            datePemesanan.Value = DateTime.Now;
+            txtJumlahTamu.Clear();
+            radioStandart.Checked = false;
+            radioSuperior.Checked = false;
+            radioSuite.Checked = false;
+            selectedId = -1;
+            buttonSimpan.Enabled = true;
+        }
+
+        private bool validasi()
+        {
+            if (string.IsNullOrWhiteSpace(txtNamaTamu.Text))
+            {
+                MessageBox.Show("Nama Tamu tidak boleh kosong.");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtJumlahTamu.Text) || !int.TryParse(txtJumlahTamu.Text, out _))
+            {
+                MessageBox.Show("Jumlah Tamu harus diisi dengan angka yang valid.");
+                return false;
+            }
+            if (!radioStandart.Checked && !radioSuperior.Checked && !radioSuite.Checked)
+            {
+                MessageBox.Show("Pilih tipe kamar terlebih dahulu.");
+                return false;
+            }
+            if (dateCheckIn.Value < DateTime.Now)
+            {
+                MessageBox.Show("Tanggal Check-In tidak boleh sebelum hari ini.");
+                return false;
+            }
+            if (dateCheckIn.Value < datePemesanan.Value)
+            {
+                MessageBox.Show("Tanggal Check-In tidak boleh sebelum Tanggal Pemesanan.");
+                return false;
+            }
+            if (datePemesanan.Value < DateTime.Now)
+            {
+                MessageBox.Show("Tanggal Pemesanan tidak boleh sebelum hari ini.");
+                return false;
+            }
+            return true;
         }
 
         private void TampilkanDataFiltered()
@@ -413,51 +506,6 @@ namespace HomeStay
                 labelPageInfo.Text = $"Halaman {currentPage} dari {totalPages}";
             }
         }
-        private void buttonPrev_Click(object sender, EventArgs e)
-        {
-            if (currentPage > 1)
-            {
-                currentPage--;
-                if (isFiltered)
-                {
-                    TampilkanDataFiltered();
-                }
-                else
-                {
-                    TampilkanDataDefault();
-                }
-            }
-        }
-
-        private void buttonNext_Click(object sender, EventArgs e)
-        {
-            if (currentPage < totalPages)
-            {
-                currentPage++;
-                if (isFiltered)
-                {
-                    TampilkanDataFiltered();
-                }
-                else
-                {
-                    TampilkanDataDefault();
-                }
-            }
-        }
-
-        private void FormReservasi_Load(object sender, EventArgs e)
-        {
-            currentPage = 1;
-            isFiltered = false;
-            TampilkanDataDefault();
-        }
-
-
-        private void buttonPrint_Click(object sender, EventArgs e)
-        {
-
-        }
-
         
     }
 }

@@ -19,16 +19,6 @@ namespace HomeStay
             InitializeComponent();
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelLogin_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = textBoxUsername.Text.Trim();
@@ -89,11 +79,16 @@ namespace HomeStay
             }
         }
 
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        private void checkBoxPassword_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxPassword.Checked)
+            {
+                textBoxPassword.UseSystemPasswordChar = false; // Tampilkan password
+            }
+            else
+            {
+                textBoxPassword.UseSystemPasswordChar = true; // Sembunyikan password
+            }
         }
-
-        
     }
 }

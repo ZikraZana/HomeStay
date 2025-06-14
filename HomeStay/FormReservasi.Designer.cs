@@ -56,6 +56,7 @@
             this.txtCari = new Guna.UI2.WinForms.Guna2TextBox();
             this.buttonCari = new Guna.UI2.WinForms.Guna2Button();
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
+            this.btnReload = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).BeginInit();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
@@ -98,6 +99,7 @@
             // 
             // txtNamaTamu
             // 
+            this.txtNamaTamu.BorderColor = System.Drawing.Color.DimGray;
             this.txtNamaTamu.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNamaTamu.DefaultText = "";
             this.txtNamaTamu.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -117,6 +119,7 @@
             // 
             // txtJumlahTamu
             // 
+            this.txtJumlahTamu.BorderColor = System.Drawing.Color.DimGray;
             this.txtJumlahTamu.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtJumlahTamu.DefaultText = "";
             this.txtJumlahTamu.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -137,6 +140,8 @@
             // datePemesanan
             // 
             this.datePemesanan.BackColor = System.Drawing.Color.White;
+            this.datePemesanan.BorderRadius = 1;
+            this.datePemesanan.BorderThickness = 1;
             this.datePemesanan.Checked = true;
             this.datePemesanan.FillColor = System.Drawing.Color.White;
             this.datePemesanan.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -259,6 +264,8 @@
             // 
             // buttonPrev
             // 
+            this.buttonPrev.BorderRadius = 5;
+            this.buttonPrev.BorderThickness = 1;
             this.buttonPrev.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.buttonPrev.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.buttonPrev.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -275,6 +282,8 @@
             // 
             // buttonNext
             // 
+            this.buttonNext.BorderRadius = 5;
+            this.buttonNext.BorderThickness = 1;
             this.buttonNext.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.buttonNext.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.buttonNext.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -336,6 +345,8 @@
             // dateCheckIn
             // 
             this.dateCheckIn.BackColor = System.Drawing.Color.White;
+            this.dateCheckIn.BorderRadius = 1;
+            this.dateCheckIn.BorderThickness = 1;
             this.dateCheckIn.Checked = true;
             this.dateCheckIn.FillColor = System.Drawing.Color.White;
             this.dateCheckIn.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -350,11 +361,13 @@
             // 
             // buttonEdit
             // 
+            this.buttonEdit.BorderRadius = 5;
+            this.buttonEdit.BorderThickness = 1;
             this.buttonEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.buttonEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.buttonEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.buttonEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.buttonEdit.FillColor = System.Drawing.Color.White;
+            this.buttonEdit.FillColor = System.Drawing.Color.Yellow;
             this.buttonEdit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonEdit.ForeColor = System.Drawing.Color.Black;
             this.buttonEdit.Location = new System.Drawing.Point(495, 812);
@@ -366,11 +379,13 @@
             // 
             // buttonHapus
             // 
+            this.buttonHapus.BorderRadius = 5;
+            this.buttonHapus.BorderThickness = 1;
             this.buttonHapus.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.buttonHapus.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.buttonHapus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.buttonHapus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.buttonHapus.FillColor = System.Drawing.Color.White;
+            this.buttonHapus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonHapus.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonHapus.ForeColor = System.Drawing.Color.Black;
             this.buttonHapus.Location = new System.Drawing.Point(704, 812);
@@ -382,6 +397,8 @@
             // 
             // buttonClear
             // 
+            this.buttonClear.BorderRadius = 5;
+            this.buttonClear.BorderThickness = 1;
             this.buttonClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.buttonClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.buttonClear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -398,6 +415,8 @@
             // 
             // buttonPrint
             // 
+            this.buttonPrint.BorderRadius = 5;
+            this.buttonPrint.BorderThickness = 1;
             this.buttonPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.buttonPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.buttonPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -414,6 +433,8 @@
             // 
             // buttonSimpan
             // 
+            this.buttonSimpan.BorderRadius = 5;
+            this.buttonSimpan.BorderThickness = 1;
             this.buttonSimpan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.buttonSimpan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.buttonSimpan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -430,6 +451,7 @@
             // 
             // txtCari
             // 
+            this.txtCari.BorderColor = System.Drawing.Color.DimGray;
             this.txtCari.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCari.DefaultText = "";
             this.txtCari.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -439,7 +461,7 @@
             this.txtCari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCari.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtCari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCari.Location = new System.Drawing.Point(127, 767);
+            this.txtCari.Location = new System.Drawing.Point(169, 767);
             this.txtCari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCari.Name = "txtCari";
             this.txtCari.PlaceholderText = "";
@@ -449,6 +471,8 @@
             // 
             // buttonCari
             // 
+            this.buttonCari.BorderRadius = 5;
+            this.buttonCari.BorderThickness = 1;
             this.buttonCari.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.buttonCari.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.buttonCari.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -458,7 +482,7 @@
             this.buttonCari.ForeColor = System.Drawing.Color.Black;
             this.buttonCari.Location = new System.Drawing.Point(42, 812);
             this.buttonCari.Name = "buttonCari";
-            this.buttonCari.Size = new System.Drawing.Size(233, 33);
+            this.buttonCari.Size = new System.Drawing.Size(275, 33);
             this.buttonCari.TabIndex = 49;
             this.buttonCari.Text = "Cari";
             this.buttonCari.Click += new System.EventHandler(this.buttonCari_Click);
@@ -475,8 +499,26 @@
             "Jumlah Tamu"});
             this.comboBoxFilter.Location = new System.Drawing.Point(39, 770);
             this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(81, 28);
+            this.comboBoxFilter.Size = new System.Drawing.Size(123, 28);
             this.comboBoxFilter.TabIndex = 50;
+            // 
+            // btnReload
+            // 
+            this.btnReload.BorderRadius = 5;
+            this.btnReload.BorderThickness = 1;
+            this.btnReload.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReload.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReload.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReload.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReload.FillColor = System.Drawing.Color.White;
+            this.btnReload.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnReload.ForeColor = System.Drawing.Color.Black;
+            this.btnReload.Location = new System.Drawing.Point(42, 851);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(275, 33);
+            this.btnReload.TabIndex = 51;
+            this.btnReload.Text = "Reload";
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // FormReservasi
             // 
@@ -484,6 +526,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(827, 925);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.comboBoxFilter);
             this.Controls.Add(this.buttonCari);
             this.Controls.Add(this.txtCari);
@@ -553,5 +596,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtCari;
         private Guna.UI2.WinForms.Guna2Button buttonCari;
         private System.Windows.Forms.ComboBox comboBoxFilter;
+        private Guna.UI2.WinForms.Guna2Button btnReload;
     }
 }
