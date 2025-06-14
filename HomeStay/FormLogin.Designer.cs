@@ -159,6 +159,7 @@
             this.textBoxPassword.SelectedText = "";
             this.textBoxPassword.Size = new System.Drawing.Size(397, 37);
             this.textBoxPassword.TabIndex = 13;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 

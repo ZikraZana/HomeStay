@@ -89,16 +89,6 @@ namespace HomeStay
             buttonSimpan.Enabled = true;
         }
 
-        private void txtJumlahTamu_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelJumlah_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             if (selectedId == -1)
@@ -292,13 +282,18 @@ namespace HomeStay
             }
             else if (kolom == "Tipe Kamar")
             {
-                kolomDb = "id_kamar";
+                kolomDb = "tipe_kamar";
             }
 
             using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
             {
                 conn.Open();
-                string countQuery = $"SELECT Count(*) FROM pemesanan WHERE {kolomDb} LIKE @keyword";
+                string countQuery = @"
+                        SELECT COUNT(*) 
+                        FROM pemesanan p
+                        JOIN kamar k ON p.id_kamar = k.id_kamar
+                        WHERE " + (kolomDb == "tipe_kamar" ? "k." : "p.") + kolomDb + " LIKE @keyword";
+
                 MySqlCommand countCmd = new MySqlCommand(countQuery, conn);
                 countCmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
                 totalRecords = Convert.ToInt32(countCmd.ExecuteScalar());
@@ -330,6 +325,7 @@ namespace HomeStay
                             p.id_resepsionis
                         FROM pemesanan p
                         JOIN kamar k ON p.id_kamar = k.id_kamar
+                        WHERE " + kolomDb + @" LIKE @keyword
                         ORDER BY p.id_pemesanan DESC
                         LIMIT @limit OFFSET @offset";
 

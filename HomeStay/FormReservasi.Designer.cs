@@ -84,7 +84,6 @@
             this.label1.Size = new System.Drawing.Size(426, 42);
             this.label1.TabIndex = 18;
             this.label1.Text = "Manajemen Data Tamu";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -469,11 +468,11 @@
             this.comboBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBoxFilter.FormattingEnabled = true;
             this.comboBoxFilter.Items.AddRange(new object[] {
-            "tipe_kamar",
-            "nama_tamu",
-            "tanggal_pemesanan",
-            "tanggal_check_in",
-            "jumlah_tamu"});
+            "Tipe Kamar",
+            "Nama Tamu",
+            "Tanggal Pemesanan",
+            "Tanggal Check-in",
+            "Jumlah Tamu"});
             this.comboBoxFilter.Location = new System.Drawing.Point(39, 770);
             this.comboBoxFilter.Name = "comboBoxFilter";
             this.comboBoxFilter.Size = new System.Drawing.Size(81, 28);
