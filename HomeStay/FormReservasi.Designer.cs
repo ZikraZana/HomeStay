@@ -39,7 +39,6 @@
             this.radioStandart = new Guna.UI2.WinForms.Guna2RadioButton();
             this.radioSuperior = new Guna.UI2.WinForms.Guna2RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonPrev = new Guna.UI2.WinForms.Guna2Button();
             this.buttonNext = new Guna.UI2.WinForms.Guna2Button();
@@ -57,6 +56,8 @@
             this.buttonCari = new Guna.UI2.WinForms.Guna2Button();
             this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.btnReload = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).BeginInit();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
@@ -71,7 +72,7 @@
             this.dataGridReservasi.Name = "dataGridReservasi";
             this.dataGridReservasi.RowHeadersWidth = 62;
             this.dataGridReservasi.RowTemplate.Height = 28;
-            this.dataGridReservasi.Size = new System.Drawing.Size(760, 308);
+            this.dataGridReservasi.Size = new System.Drawing.Size(760, 199);
             this.dataGridReservasi.TabIndex = 11;
             this.dataGridReservasi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReservasi_CellClick);
             // 
@@ -91,7 +92,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 565);
+            this.label2.Location = new System.Drawing.Point(35, 466);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 25);
             this.label2.TabIndex = 21;
@@ -109,7 +110,7 @@
             this.txtNamaTamu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNamaTamu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNamaTamu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNamaTamu.Location = new System.Drawing.Point(40, 595);
+            this.txtNamaTamu.Location = new System.Drawing.Point(41, 496);
             this.txtNamaTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNamaTamu.Name = "txtNamaTamu";
             this.txtNamaTamu.PlaceholderText = "";
@@ -129,7 +130,7 @@
             this.txtJumlahTamu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtJumlahTamu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtJumlahTamu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtJumlahTamu.Location = new System.Drawing.Point(309, 595);
+            this.txtJumlahTamu.Location = new System.Drawing.Point(310, 496);
             this.txtJumlahTamu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtJumlahTamu.Name = "txtJumlahTamu";
             this.txtJumlahTamu.PlaceholderText = "";
@@ -146,7 +147,7 @@
             this.datePemesanan.FillColor = System.Drawing.Color.White;
             this.datePemesanan.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePemesanan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datePemesanan.Location = new System.Drawing.Point(39, 682);
+            this.datePemesanan.Location = new System.Drawing.Point(40, 583);
             this.datePemesanan.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.datePemesanan.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.datePemesanan.Name = "datePemesanan";
@@ -175,7 +176,7 @@
             this.radioSuite.CheckedState.InnerColor = System.Drawing.Color.White;
             this.radioSuite.CheckedState.InnerOffset = -4;
             this.radioSuite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioSuite.Location = new System.Drawing.Point(574, 702);
+            this.radioSuite.Location = new System.Drawing.Point(575, 603);
             this.radioSuite.Name = "radioSuite";
             this.radioSuite.Size = new System.Drawing.Size(150, 29);
             this.radioSuite.TabIndex = 32;
@@ -196,7 +197,7 @@
             this.radioStandart.CheckedState.InnerColor = System.Drawing.Color.White;
             this.radioStandart.CheckedState.InnerOffset = -4;
             this.radioStandart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioStandart.Location = new System.Drawing.Point(574, 632);
+            this.radioStandart.Location = new System.Drawing.Point(575, 533);
             this.radioStandart.Name = "radioStandart";
             this.radioStandart.Size = new System.Drawing.Size(174, 29);
             this.radioStandart.TabIndex = 30;
@@ -217,7 +218,7 @@
             this.radioSuperior.CheckedState.InnerColor = System.Drawing.Color.White;
             this.radioSuperior.CheckedState.InnerOffset = -4;
             this.radioSuperior.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioSuperior.Location = new System.Drawing.Point(574, 667);
+            this.radioSuperior.Location = new System.Drawing.Point(575, 568);
             this.radioSuperior.Name = "radioSuperior";
             this.radioSuperior.Size = new System.Drawing.Size(179, 29);
             this.radioSuperior.TabIndex = 31;
@@ -234,29 +235,18 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SandyBrown;
-            this.label3.Location = new System.Drawing.Point(93, 16);
+            this.label3.Location = new System.Drawing.Point(348, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(179, 54);
             this.label3.TabIndex = 19;
             this.label3.Text = "HomeStay";
-            // 
-            // pictureBoxIcon
-            // 
-            this.pictureBoxIcon.Image = global::HomeStay.Properties.Resources.building;
-            this.pictureBoxIcon.Location = new System.Drawing.Point(37, 18);
-            this.pictureBoxIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxIcon.Name = "pictureBoxIcon";
-            this.pictureBoxIcon.Size = new System.Drawing.Size(50, 48);
-            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxIcon.TabIndex = 33;
-            this.pictureBoxIcon.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(304, 565);
+            this.label4.Location = new System.Drawing.Point(305, 466);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(132, 25);
             this.label4.TabIndex = 34;
@@ -273,7 +263,7 @@
             this.buttonPrev.FillColor = System.Drawing.Color.White;
             this.buttonPrev.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonPrev.ForeColor = System.Drawing.Color.Black;
-            this.buttonPrev.Location = new System.Drawing.Point(37, 501);
+            this.buttonPrev.Location = new System.Drawing.Point(38, 402);
             this.buttonPrev.Name = "buttonPrev";
             this.buttonPrev.Size = new System.Drawing.Size(103, 33);
             this.buttonPrev.TabIndex = 35;
@@ -291,7 +281,7 @@
             this.buttonNext.FillColor = System.Drawing.Color.White;
             this.buttonNext.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonNext.ForeColor = System.Drawing.Color.Black;
-            this.buttonNext.Location = new System.Drawing.Point(169, 501);
+            this.buttonNext.Location = new System.Drawing.Point(170, 402);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(103, 33);
             this.buttonNext.TabIndex = 36;
@@ -303,7 +293,7 @@
             this.labelPageInfo.AutoSize = true;
             this.labelPageInfo.BackColor = System.Drawing.Color.Transparent;
             this.labelPageInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelPageInfo.Location = new System.Drawing.Point(623, 509);
+            this.labelPageInfo.Location = new System.Drawing.Point(624, 410);
             this.labelPageInfo.Name = "labelPageInfo";
             this.labelPageInfo.Size = new System.Drawing.Size(159, 25);
             this.labelPageInfo.TabIndex = 37;
@@ -314,7 +304,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(35, 650);
+            this.label6.Location = new System.Drawing.Point(36, 551);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(194, 25);
             this.label6.TabIndex = 38;
@@ -325,7 +315,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(569, 595);
+            this.label7.Location = new System.Drawing.Point(570, 496);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 25);
             this.label7.TabIndex = 39;
@@ -336,7 +326,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(303, 650);
+            this.label8.Location = new System.Drawing.Point(304, 551);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(168, 25);
             this.label8.TabIndex = 41;
@@ -351,7 +341,7 @@
             this.dateCheckIn.FillColor = System.Drawing.Color.White;
             this.dateCheckIn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateCheckIn.Location = new System.Drawing.Point(308, 682);
+            this.dateCheckIn.Location = new System.Drawing.Point(309, 583);
             this.dateCheckIn.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateCheckIn.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateCheckIn.Name = "dateCheckIn";
@@ -370,7 +360,7 @@
             this.buttonEdit.FillColor = System.Drawing.Color.Yellow;
             this.buttonEdit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonEdit.ForeColor = System.Drawing.Color.Black;
-            this.buttonEdit.Location = new System.Drawing.Point(495, 812);
+            this.buttonEdit.Location = new System.Drawing.Point(496, 713);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(103, 33);
             this.buttonEdit.TabIndex = 42;
@@ -388,7 +378,7 @@
             this.buttonHapus.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonHapus.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonHapus.ForeColor = System.Drawing.Color.Black;
-            this.buttonHapus.Location = new System.Drawing.Point(704, 812);
+            this.buttonHapus.Location = new System.Drawing.Point(705, 713);
             this.buttonHapus.Name = "buttonHapus";
             this.buttonHapus.Size = new System.Drawing.Size(103, 33);
             this.buttonHapus.TabIndex = 43;
@@ -406,7 +396,7 @@
             this.buttonClear.FillColor = System.Drawing.Color.White;
             this.buttonClear.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonClear.ForeColor = System.Drawing.Color.Black;
-            this.buttonClear.Location = new System.Drawing.Point(495, 851);
+            this.buttonClear.Location = new System.Drawing.Point(496, 752);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(103, 33);
             this.buttonClear.TabIndex = 44;
@@ -424,7 +414,7 @@
             this.buttonPrint.FillColor = System.Drawing.Color.White;
             this.buttonPrint.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonPrint.ForeColor = System.Drawing.Color.Black;
-            this.buttonPrint.Location = new System.Drawing.Point(704, 851);
+            this.buttonPrint.Location = new System.Drawing.Point(705, 752);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(103, 33);
             this.buttonPrint.TabIndex = 45;
@@ -442,7 +432,7 @@
             this.buttonSimpan.FillColor = System.Drawing.Color.White;
             this.buttonSimpan.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonSimpan.ForeColor = System.Drawing.Color.Black;
-            this.buttonSimpan.Location = new System.Drawing.Point(495, 770);
+            this.buttonSimpan.Location = new System.Drawing.Point(496, 671);
             this.buttonSimpan.Name = "buttonSimpan";
             this.buttonSimpan.Size = new System.Drawing.Size(312, 33);
             this.buttonSimpan.TabIndex = 46;
@@ -461,7 +451,7 @@
             this.txtCari.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCari.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtCari.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCari.Location = new System.Drawing.Point(169, 767);
+            this.txtCari.Location = new System.Drawing.Point(170, 668);
             this.txtCari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCari.Name = "txtCari";
             this.txtCari.PlaceholderText = "";
@@ -480,7 +470,7 @@
             this.buttonCari.FillColor = System.Drawing.Color.White;
             this.buttonCari.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonCari.ForeColor = System.Drawing.Color.Black;
-            this.buttonCari.Location = new System.Drawing.Point(42, 812);
+            this.buttonCari.Location = new System.Drawing.Point(43, 713);
             this.buttonCari.Name = "buttonCari";
             this.buttonCari.Size = new System.Drawing.Size(275, 33);
             this.buttonCari.TabIndex = 49;
@@ -498,7 +488,7 @@
             "Jumlah Tamu",
             "Tanggal Pemesanan",
             "Tanggal Check-in"});
-            this.comboBoxFilter.Location = new System.Drawing.Point(39, 770);
+            this.comboBoxFilter.Location = new System.Drawing.Point(40, 671);
             this.comboBoxFilter.Name = "comboBoxFilter";
             this.comboBoxFilter.Size = new System.Drawing.Size(123, 28);
             this.comboBoxFilter.TabIndex = 50;
@@ -514,19 +504,49 @@
             this.btnReload.FillColor = System.Drawing.Color.White;
             this.btnReload.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnReload.ForeColor = System.Drawing.Color.Black;
-            this.btnReload.Location = new System.Drawing.Point(42, 851);
+            this.btnReload.Location = new System.Drawing.Point(43, 752);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(275, 33);
             this.btnReload.TabIndex = 51;
             this.btnReload.Text = "Reload";
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.BorderRadius = 5;
+            this.btnBack.BorderThickness = 1;
+            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBack.FillColor = System.Drawing.Color.LightGray;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnBack.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.Location = new System.Drawing.Point(37, 26);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(90, 33);
+            this.btnBack.TabIndex = 52;
+            this.btnBack.Text = "<- Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // pictureBoxIcon
+            // 
+            this.pictureBoxIcon.Image = global::HomeStay.Properties.Resources.building;
+            this.pictureBoxIcon.Location = new System.Drawing.Point(292, 16);
+            this.pictureBoxIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxIcon.Name = "pictureBoxIcon";
+            this.pictureBoxIcon.Size = new System.Drawing.Size(50, 48);
+            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxIcon.TabIndex = 33;
+            this.pictureBoxIcon.TabStop = false;
+            // 
             // FormReservasi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(827, 925);
+            this.ClientSize = new System.Drawing.Size(827, 821);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.comboBoxFilter);
             this.Controls.Add(this.buttonCari);
@@ -557,6 +577,7 @@
             this.Controls.Add(this.guna2ContainerControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormReservasi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormReservasi";
             this.Load += new System.EventHandler(this.FormReservasi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).EndInit();
@@ -598,5 +619,6 @@
         private Guna.UI2.WinForms.Guna2Button buttonCari;
         private System.Windows.Forms.ComboBox comboBoxFilter;
         private Guna.UI2.WinForms.Guna2Button btnReload;
+        private Guna.UI2.WinForms.Guna2Button btnBack;
     }
 }

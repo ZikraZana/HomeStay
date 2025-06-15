@@ -49,13 +49,15 @@ namespace HomeStay
                         {
                             Session.id_resepsionis = reader.GetInt32("id_resepsionis");
                             Session.username = reader.GetString("username");
-                            Session.nama = reader.GetString("nama");
+                            Session.nama_resepsionis = reader.GetString("nama_resepsionis");
 
                             // Login sukses 
                             MessageBox.Show("Login berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            FormReservasi frm = new FormReservasi();
-                            this.Hide();
-                            frm.Show();
+                            FormDashboard frm = new FormDashboard();
+                            this.Hide(); 
+                            frm.ShowDialog();
+                            this.Close();
+                            
                         }
                         else
                         {
