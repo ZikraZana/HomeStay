@@ -58,6 +58,7 @@
             this.btnReload = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
+            this.dateTimePickerFilter = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReservasi)).BeginInit();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
@@ -492,6 +493,7 @@
             this.comboBoxFilter.Name = "comboBoxFilter";
             this.comboBoxFilter.Size = new System.Drawing.Size(123, 28);
             this.comboBoxFilter.TabIndex = 50;
+            this.comboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_SelectedIndexChanged);
             // 
             // btnReload
             // 
@@ -540,12 +542,21 @@
             this.pictureBoxIcon.TabIndex = 33;
             this.pictureBoxIcon.TabStop = false;
             // 
+            // dateTimePickerFilter
+            // 
+            this.dateTimePickerFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePickerFilter.Location = new System.Drawing.Point(170, 671);
+            this.dateTimePickerFilter.Name = "dateTimePickerFilter";
+            this.dateTimePickerFilter.Size = new System.Drawing.Size(148, 30);
+            this.dateTimePickerFilter.TabIndex = 53;
+            // 
             // FormReservasi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(827, 821);
+            this.Controls.Add(this.dateTimePickerFilter);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.comboBoxFilter);
@@ -620,5 +631,6 @@
         private System.Windows.Forms.ComboBox comboBoxFilter;
         private Guna.UI2.WinForms.Guna2Button btnReload;
         private Guna.UI2.WinForms.Guna2Button btnBack;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFilter;
     }
 }

@@ -36,6 +36,7 @@ namespace HomeStay
             isFiltered = false;
             datePemesanan.Value = DateTime.Now;
             dateCheckIn.Value = DateTime.Now;
+            dateTimePickerFilter.Visible = false;
             TampilkanDataDefault();
         }
 
@@ -312,6 +313,7 @@ namespace HomeStay
             buttonSimpan.Enabled = true;
             comboBoxFilter.Text = "";
             txtCari.Clear();
+            dateTimePickerFilter.Visible = false;
         }
 
         private bool validasi()
@@ -358,12 +360,12 @@ namespace HomeStay
 
         private bool validasiFilter()
         {
-            if (comboBoxFilter.SelectedItem == null)
+            if (comboBoxFilter.SelectedItem == null && dateTimePickerFilter.Visible == false)
             {
                 MessageBox.Show("Pilih kolom yang ingin difilter.");
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtCari.Text))
+            if (string.IsNullOrWhiteSpace(txtCari.Text) && dateTimePickerFilter.Visible == false)
             {
                 MessageBox.Show("Masukkan keyword untuk pencarian.");
                 return false;
@@ -378,13 +380,17 @@ namespace HomeStay
             string keyword = txtCari.Text.Trim();
 
             string kolomDb = "nama_tamu"; // Default kolom pencarian
+            bool isDateFilter = false;
+
             if (kolom == "Tanggal Pemesanan")
             {
                 kolomDb = "tanggal_pemesanan";
+                isDateFilter = true;
             }
-            else if (kolom == "Tanggal Check-In")
+            else if (kolom == "Tanggal Check-in")
             {
                 kolomDb = "tanggal_check_in";
+                isDateFilter = true;
             }
             else if (kolom == "Jumlah Tamu")
             {
@@ -402,53 +408,71 @@ namespace HomeStay
             using (MySqlConnection conn = new MySqlConnection(DBConfig.ConnStr))
             {
                 conn.Open();
-                string countQuery = @"
-                        SELECT COUNT(*) 
-                        FROM pemesanan p
-                        JOIN kamar k ON p.id_kamar = k.id_kamar
-                        WHERE " + (kolomDb == "tipe_kamar" ? "k." : "p.") + kolomDb + " LIKE @keyword AND p.id_resepsionis = @id_resepsionis";
 
-                MySqlCommand countCmd = new MySqlCommand(countQuery, conn);
-                countCmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                string tableAlias = (kolomDb == "tipe_kamar") ? "k." : "p.";
+                string filterCondition;
+                MySqlCommand countCmd = new MySqlCommand();
+                countCmd.Connection = conn;
+
+                if (isDateFilter)
+                {
+                    filterCondition = $"{tableAlias}{kolomDb} = @tanggal";
+                    countCmd.Parameters.AddWithValue("@tanggal", dateTimePickerFilter.Value.Date);
+                }
+                else
+                {
+                    filterCondition = $"{tableAlias}{kolomDb} LIKE @keyword";
+                    countCmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                }
+
                 countCmd.Parameters.AddWithValue("@id_resepsionis", Session.id_resepsionis);
-                totalRecords = Convert.ToInt32(countCmd.ExecuteScalar());
+                countCmd.CommandText = $@"
+            SELECT COUNT(*) 
+            FROM pemesanan p
+            JOIN kamar k ON p.id_kamar = k.id_kamar
+            WHERE {filterCondition} AND p.id_resepsionis = @id_resepsionis";
 
+                totalRecords = Convert.ToInt32(countCmd.ExecuteScalar());
                 totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
 
-                DateTimePicker dateFilter = new DateTimePicker();
-
-                if (currentPage > totalPages)
-                {
-                    currentPage = totalPages;
-                }
-                if (currentPage < 1)
-                {
-                    currentPage = 1;
-                }
+                if (currentPage > totalPages) currentPage = totalPages;
+                if (currentPage < 1) currentPage = 1;
                 int offset = (currentPage - 1) * pageSize;
 
-                string query = @"
-                        SELECT 
-                            p.id_pemesanan,
-                            p.nama_tamu,
-                            p.tanggal_pemesanan,
-                            p.tanggal_check_in,
-                            p.jumlah_tamu,
-                            k.tipe_kamar,
-                            p.id_kamar,
-                            p.no_pemesanan,
-                            p.id_resepsionis
-                        FROM pemesanan p
-                        JOIN kamar k ON p.id_kamar = k.id_kamar
-                        WHERE " + kolomDb + @" LIKE @keyword AND p.id_resepsionis = @id_resepsionis
-                        ORDER BY p.id_pemesanan DESC
-                        LIMIT @limit OFFSET @offset";
-
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@id_resepsionis", Session.id_resepsionis);
                 cmd.Parameters.AddWithValue("@limit", pageSize);
                 cmd.Parameters.AddWithValue("@offset", offset);
-                cmd.Parameters.AddWithValue("@id_resepsionis", Session.id_resepsionis);
+
+                if (isDateFilter)
+                {
+                    filterCondition = $"{tableAlias}{kolomDb} = @tanggal";
+                    cmd.Parameters.AddWithValue("@tanggal", dateTimePickerFilter.Value.Date);
+                }
+                else
+                {
+                    filterCondition = $"{tableAlias}{kolomDb} LIKE @keyword";
+                    cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                }
+
+                cmd.CommandText = $@"
+            SELECT 
+                p.id_pemesanan,
+                p.nama_tamu,
+                p.tanggal_pemesanan,
+                p.tanggal_check_in,
+                p.jumlah_tamu,
+                k.tipe_kamar,
+                p.id_kamar,
+                p.no_pemesanan,
+                p.id_resepsionis
+            FROM pemesanan p
+            JOIN kamar k ON p.id_kamar = k.id_kamar
+            WHERE {filterCondition} AND p.id_resepsionis = @id_resepsionis
+            ORDER BY p.id_pemesanan DESC
+            LIMIT @limit OFFSET @offset";
+
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -471,11 +495,12 @@ namespace HomeStay
                 dataGridReservasi.Columns["tipe_kamar"].DisplayIndex = 3;
                 dataGridReservasi.Columns["tanggal_pemesanan"].DisplayIndex = 4;
                 dataGridReservasi.Columns["tanggal_check_in"].DisplayIndex = 5;
-
                 labelPageInfo.Text = $"Halaman {currentPage} dari {totalPages}";
             }
-
         }
+
+
+
 
         private void TampilkanDataDefault()
         {
@@ -550,5 +575,19 @@ namespace HomeStay
             }
         }
 
+        private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected = comboBoxFilter.SelectedItem?.ToString();
+            if (selected == "Tanggal Pemesanan" || selected == "Tanggal Check-in")
+            {
+                dateTimePickerFilter.Visible = true;
+                txtCari.Visible = false;
+            }
+            else
+            {
+                dateTimePickerFilter.Visible = false;
+                txtCari.Visible = true;
+            }
+        }
     }
 }
